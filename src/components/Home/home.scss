@@ -1,0 +1,24 @@
+.home {
+  margin-left: 25%;
+}
+
+img {
+  width: 13rem;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover {
+  // FILMS
+  &_movies_list {
+    display: flex;
+  }
+
+  // SHOWS
+  &_shows_list {
+    display: flex;
+  }
+}
+
+
+

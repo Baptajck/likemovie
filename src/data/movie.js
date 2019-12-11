@@ -1,0 +1,58 @@
+export default [
+  {
+    id: 1,
+    src: 'https://image.tmdb.org/t/p/w370_and_h556_bestv2/6zbuHXiuCdHZ57fZOlfUknpzCjU.jpg',
+    title: 'Frozen II',
+    year: 2019,
+    desc: 'Elsa, Anna, Kristoff and Olaf head far into the forest to learn the truth about an ancient mystery of their kingdom.',
+  },
+  {
+    id: 2,
+    src: 'https://image.tmdb.org/t/p/w370_and_h556_bestv2/kc62PCo8u5sZKq0crYvZSidLFPr.jpg',
+    title: 'Jumanji: The Next Level',
+    year: 2019,
+    desc: 'Spencer returns to the world of Jumanji, prompting his friends, his grandfather and his grandfather’s friend to enter a different and more dangerous version to save him.',
+  },
+  {
+    id: 3,
+    src: 'https://image.tmdb.org/t/p/w370_and_h556_bestv2/W9xPACmHuhFC0xHwpyFvGbapUT.jpg',
+    title: 'The Irishman',
+    year: 2019,
+    desc: 'Pennsylvania, 1956. Frank Sheeran, a war veteran of Irish origin who works as a truck driver, accidentally meets mobster Russell Bufalino. Once Frank becomes his trusted man, Bufalino sends him to Chi...',
+  },
+  {
+    id: 4,
+    src: 'https://image.tmdb.org/t/p/w370_and_h556_bestv2/cJ0wqaQ9KPzs3fROXUuaWgRg9Pj.jpg',
+    title: 'Ad Astra',
+    year: 2019,
+    desc: 'An astronaut travels to the outer edges of the solar system to find his father and unravel a mystery that threatens the survival of Earth. In doing so, he uncovers secrets which challenge the nature o...',
+  },
+  {
+    id: 5,
+    src: 'https://image.tmdb.org/t/p/w370_and_h556_bestv2/tWjJ3ILjsbTwKgXxEv48QAbYZ19.jpg',
+    title: 'Joker',
+    year: 2019,
+    desc: 'During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.',
+  },
+  {
+    id: 6,
+    src: 'https://image.tmdb.org/t/p/w370_and_h556_bestv2/53bAqsB95W0yEd0hpaDrQSBSXIO.jpg',
+    title: 'Rambo: Last Blood',
+    year: 2019,
+    desc: 'After fighting his demons for decades, John Rambo now lives in peace on his family ranch in Arizona, but his rest is interrupted when Gabriela, the granddaughter of his housekeeper María, disappears a...',
+  },
+  {
+    id: 7,
+    src: 'https://image.tmdb.org/t/p/w370_and_h556_bestv2/mAWBfTDAmfpvQGMVFuzuVl49N1P.jpg',
+    title: 'Ip Man 4: the Finale',
+    year: 2019,
+    desc: 'Ip Man 4 is an upcoming Hong Kong biographical martial arts film directed by Wilson Yip and produced by Raymond Wong. It is the fourth in the Ip Man film series based on the life of the Wing Chun gran...',
+  },
+  {
+    id: 8,
+    src: 'https://image.tmdb.org/t/p/w370_and_h556_bestv2/pWiALkHml93SWMdq2NSBFkfWOkJ.jpg',
+    title: 'Ça Chapter Two',
+    year: 2019,
+    desc: '27 years after overcoming the malevolent supernatural entity Pennywise, the former members of the Losers\' Club, who have grown up and moved away from Derry, are brought back together by a devastating ...',
+  },
+];
