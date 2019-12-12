@@ -1,22 +1,49 @@
-.home {
-  margin-left: 25%;
-}
-
-.cover_img {
-  width: 13rem;
-  height: 100%;
-  object-fit: cover;
-}
-
-.cover {
-  // FILMS
-  &_movies_list {
-    display: flex;
+@media screen and (min-width: 300px) {
+  .home {
+    margin-left: 16%;
   }
 
-  // SHOWS
-  &_shows_list {
-    display: flex;
+  .title_category {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .cover_img {
+    width: 13rem;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cover {
+    &_list {
+      margin: 2rem 0;
+    }
+    // FILMS
+    &_movies_list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin-bottom: 4rem;
+    }
+
+    // SHOWS
+    &_shows_list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin-bottom: 4rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home {
+    margin-left: 25%;
   }
 }
 

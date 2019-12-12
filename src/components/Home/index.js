@@ -6,17 +6,19 @@ import shows from '../../data/show';
 
 const Home = () => (
   <div className="home">
+    <h1 className="title_category">Liste de films</h1>
     <div className="cover_movies">
       <ul className="cover_movies_list">
         {
-          movies.map((movie) => <li key={movie.id}><a className="cover_movies_list_link" href="">{movie.title}</a><img className="cover_img" alt="cover" title="{movie.title}" src={movie.src} /></li>)
+          movies.map((movie) => <li key={movie.id} className="cover_list"><img className="cover_img" alt="cover" title="{movie.title}" src={movie.src} /></li>)
         }
       </ul>
     </div>
+    <h1 className="title_category">Liste de séries</h1>
     <div className="cover_shows">
       <ul className="cover_shows_list">
         {
-          shows.map((show) => <li key={show.id}><a className="cover_shows_list_link" href="">{show.title}</a><img className="cover_img" alt="cover" title="{show.title}" src={show.src} /></li>)
+          shows.map((show) => <li key={show.id} className="cover_list"><img className="cover_img" alt="cover" title="{show.title}" src={show.src} /></li>)
         }
       </ul>
     </div>
