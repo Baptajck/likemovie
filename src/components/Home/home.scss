@@ -3,11 +3,18 @@
     margin-left: 16%;
   }
 
+
   .title {
     padding: 1.5rem;
     text-align: center;
     letter-spacing: 0.2em;
     background: #232323;
+
+    &_image {
+      font-size: 14px;
+      text-align: center;
+      margin-top: .4rem;
+    }
     
     &_category {
       font-family: 'Dosis', sans-serif;
@@ -19,6 +26,10 @@
       -webkit-text-fill-color: transparent;
       display: inline;
     }
+  }
+
+  .section {
+    background: #232323;
   }
 
   .cover_img {
@@ -39,8 +50,10 @@
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      margin-bottom: 1.5rem;
-      margin-top: 1rem;
+      border-top-left-radius: 1.1%;
+      border-bottom-left-radius: 1.1%;
+      background: #fff;
+      padding: 1rem 0;
     }
 
     // SHOWS
@@ -49,8 +62,10 @@
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      margin-bottom: 1.5rem;
-      margin-top: 1rem;
+      border-top-left-radius: 1.1%;
+      border-bottom-left-radius: 1.1%;
+      background: #fff;
+      padding: 1rem 0;
     }
   }
 }
@@ -60,14 +75,29 @@
   .home {
     margin-left: 25%;
   }
+
+  .container_movie {
+    padding: 0rem 0rem .5rem;
+    margin: .2rem;
+    background: linear-gradient(to left, rgb(255, 203, 57), rgb(161, 121, 9));
+    border-radius: 2%;
+  }
+
+  .title_image {
+    font-size: 18px;
+  }
   
   .cover_img {
     width: 13rem;
     height: 100%;
     object-fit: cover;
+    border-radius: 0;
   }
 
   .cover {
+    &_list {
+      margin: 0;
+    }
     // FILMS
     &_movies_list {
       margin-bottom: 4rem;

@@ -188,7 +188,7 @@
           }
     
           &:hover a::after {
-            background-image: linear-gradient(to left, rgb(161, 121, 9), rgb(255, 203, 57));
+            background-image: linear-gradient(to left, rgb(255, 203, 57), rgb(161, 121, 9));
             animation: rotate 3s infinite linear;
             -webkit-animation: rotate 3s infinite linear;
           }
@@ -200,7 +200,7 @@
             height: 0.2em;
             left: 0;
             bottom: 0;
-            background-image: linear-gradient(to left, rgb(255, 203, 57), rgb(161, 121, 9));
+            background-image: linear-gradient(to left, rgb(161, 121, 9), rgb(255, 203, 57));
           }
         }
       }
