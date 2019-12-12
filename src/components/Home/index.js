@@ -6,7 +6,9 @@ import shows from '../../data/show';
 
 const Home = () => (
   <div className="home">
-    <h1 className="title_category">Liste de films</h1>
+    <div>
+      <h1 className="title_category">Liste de films</h1>
+    </div>
     <div className="cover_movies">
       <ul className="cover_movies_list">
         {

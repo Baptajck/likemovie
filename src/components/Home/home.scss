@@ -19,7 +19,7 @@
 
   .cover {
     &_list {
-      margin: .5rem 0;
+      margin: .6rem 0;
     }
     // FILMS
     &_movies_list {
@@ -27,7 +27,7 @@
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      margin-bottom: 4rem;
+      margin-bottom: 1.5rem;
     }
 
     // SHOWS
@@ -36,7 +36,7 @@
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      margin-bottom: 4rem;
+      margin-bottom: 1.5rem;
     }
   }
 }
@@ -52,6 +52,17 @@
     object-fit: cover;
   }
 
+  .cover {
+    // FILMS
+    &_movies_list {
+      margin-bottom: 4rem;
+    }
+
+    // SHOWS
+    &_shows_list {
+      margin-bottom: 4rem;
+    }
+  }
 }
 
 
