@@ -12,14 +12,14 @@
   }
 
   .cover_img {
-    width: 13rem;
+    width: 8rem;
     height: 100%;
     object-fit: cover;
   }
 
   .cover {
     &_list {
-      margin: 2rem 0;
+      margin: .5rem 0;
     }
     // FILMS
     &_movies_list {
@@ -45,6 +45,13 @@
   .home {
     margin-left: 25%;
   }
+  
+  .cover_img {
+    width: 13rem;
+    height: 100%;
+    object-fit: cover;
+  }
+
 }
 
 
