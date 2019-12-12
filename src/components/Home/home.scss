@@ -3,17 +3,42 @@
     margin-left: 16%;
   }
 
+  .footer {
+    padding: 3rem;
+    text-align: center;
+    background: #000;
+  }
+
+  .text_footer {
+    color: #adadad;
+    text-align: center;
+    line-height: 2rem;
+  }
+
+  footer {
+    margin-left: 16%;
+  }
+
+  .link_footer {
+    background: linear-gradient(to left, rgb(161, 121, 9), rgb(255, 203, 57));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .container_movie {
+    margin-bottom: 1rem;
+  }
 
   .title {
-    padding: 1.5rem;
-    text-align: center;
-    letter-spacing: 0.2em;
-    background: #232323;
 
     &_image {
       font-size: 14px;
       text-align: center;
-      margin-top: .4rem;
+      margin-top: .6rem;
+      color: #fff;
     }
     
     &_category {
@@ -25,11 +50,26 @@
       -webkit-background-clip:text;
       -webkit-text-fill-color: transparent;
       display: inline;
+
+      &_movies {
+        padding: 1.5rem;
+        text-align: center;
+        letter-spacing: 0.2em;
+        background: #161616;
+      }
+      
+      &_shows {
+        padding-top: 4rem;
+        padding-bottom: 1.5rem;
+        text-align: center;
+        letter-spacing: 0.2em;
+        background: #161616;
+      }
     }
   }
 
   .section {
-    background: #232323;
+    background: #161616;
   }
 
   .cover_img {
@@ -37,6 +77,10 @@
     height: 100%;
     object-fit: cover;
     border-radius: 5%;
+    -moz-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
+    -o-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
+    box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
   }
 
   .cover {
@@ -50,9 +94,6 @@
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      border-top-left-radius: 2% 1%;
-      border-bottom-left-radius: 2% 1%;
-      background: #fff;
       padding: 1rem 0;
     }
 
@@ -62,9 +103,6 @@
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-evenly;
-      border-top-left-radius: 1.1%;
-      border-bottom-left-radius: 1.1%;
-      background: #fff;
       padding: 1rem 0;
     }
   }
