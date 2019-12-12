@@ -116,13 +116,15 @@
 
   .container_movie {
     padding: 0rem 0rem .5rem;
-    margin: .2rem;
+    margin: .2rem 0rem 2rem 0rem;
     background: linear-gradient(to left, rgb(255, 203, 57), rgb(161, 121, 9));
     border-radius: 2%;
   }
 
   .title_image {
     font-size: 18px;
+    color: #161616;
+    padding-bottom: 0.3rem;
   }
   
   .cover_img {
@@ -130,20 +132,29 @@
     height: 100%;
     object-fit: cover;
     border-radius: 0;
+    -moz-box-shadow: 0px 0px 5px 0px rgb(0, 0, 0);
+    -webkit-box-shadow: 0px 0px 5px 0px rgb(0, 0, 0);
+    -o-box-shadow: 0px 0px 5px 0px rgb(0, 0, 0);
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0);
   }
 
   .cover {
-    &_list {
-      margin: 0;
-    }
-    // FILMS
-    &_movies_list {
-      margin-bottom: 4rem;
+    &_movies {
+      max-width: calc((100% - 25%) - 5rem);
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    // SHOWS
-    &_shows_list {
-      margin-bottom: 4rem;
+    &_shows {
+      max-width: calc((100% - 25%) - 5rem);
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &_list {
+      margin: 0;
     }
   }
 }
