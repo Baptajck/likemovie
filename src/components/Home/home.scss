@@ -3,12 +3,21 @@
     margin-left: 16%;
   }
 
-  .title_category {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
-    font-size: 1.2rem;
-    text-align: center;
+  .title {
     padding: 2rem;
+    text-align: center;
+    background: #232323;
+    
+    &_category {
+      font-family: 'Dosis', sans-serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      background: linear-gradient(to left, rgb(161, 121, 9), rgb(255, 203, 57));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color: transparent;
+      display: inline;
+    }
   }
 
   .cover_img {
@@ -18,8 +27,9 @@
   }
 
   .cover {
+
     &_list {
-      margin: .6rem 0;
+      margin: 0.6rem 0;
     }
     // FILMS
     &_movies_list {
@@ -40,6 +50,7 @@
     }
   }
 }
+
 
 @media screen and (min-width: 768px) {
   .home {

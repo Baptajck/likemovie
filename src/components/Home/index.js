@@ -6,7 +6,7 @@ import shows from '../../data/show';
 
 const Home = () => (
   <div className="home">
-    <div>
+    <div className="title">
       <h1 className="title_category">Liste de films</h1>
     </div>
     <div className="cover_movies">
@@ -16,7 +16,9 @@ const Home = () => (
         }
       </ul>
     </div>
-    <h1 className="title_category">Liste de séries</h1>
+    <div className="title">
+      <h1 className="title_category">Liste de séries</h1>
+    </div>
     <div className="cover_shows">
       <ul className="cover_shows_list">
         {
