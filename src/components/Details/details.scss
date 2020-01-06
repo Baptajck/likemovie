@@ -1,61 +1,116 @@
 // == Size Mobile
 @media screen and (min-width: 300px) {
+  // Toute la page
   .mobile_layout_details {
     margin-left: 16%;
     background-color: #161616;
-    height: 100vh;
     color: #fff;
   }
 
   .mobile_header {
-    //display: flex;
+    // Photo de couverture
+    &_background {
+      background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url('https://image.tmdb.org/t/p/w1400_and_h450_face/jOzrELAzFxtMx2I4uDGHOotdfsS.jpg');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: darken;
+      width: 100%;
+    }
+
+    // Image de l'affiche
+    &_image {
+      width: 7rem;
+      border-radius: 3%;
+      -moz-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
+      -webkit-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
+      -o-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
+      box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
+      margin-left: 15%;
+      // margin-right: auto;
+      display: block;
+      margin-top: -2rem;
+      margin-bottom: 2rem;
+    }
+
+    // Titre du film
+    &_title {
+      font-family: 'Dosis', sans-serif;
+      text-align: center;
+      margin: 3rem 0;
+      font-size: 18px;
+      letter-spacing: 0.3em;
+      line-height: 1.5em;
+      font-weight: bold;
+      background: linear-gradient(to left, rgb(161, 121, 9), rgb(255, 203, 57));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    // Container des notes utilisateurs et du trailer
+    &_cover {
+      padding-top: 8rem;
+      padding-bottom: 2rem;
+    }
+
+    // Lien vers la bande-annonce
+    &_trailer {
+      color: #fff;
+      position: absolute;
+      right: 8%;
+      top: 30%;
+    }
+
+    // Note utilisateurs
+    &_rating {
+      position: absolute;
+      right: 17%;
+      top: 24%;
+    }
   }
 
-  .mobile_header_cover {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
-  .mobile_header_background{
-    background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url('https://image.tmdb.org/t/p/w1400_and_h450_face/jOzrELAzFxtMx2I4uDGHOotdfsS.jpg');
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: darken;
-    width: 100%;
-  }
-
-  .image_details {
-    width: 10rem;
-    border-radius: 3%;
-    -moz-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
-    -webkit-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
-    -o-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
-    box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  }
-
-  .mobile_header_title {
-    font-family: 'Dosis', sans-serif;
-    text-align: center;
-    margin: 1rem 0;
-    font-size: 18px;
+  .mobile_synopsis_title {
     font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    letter-spacing: 0.2em;
+  }
+
+  .mobile_synopsis_text {
+    width: 95%;
+    margin-left: auto;
+    margin-bottom: 3rem;
+  }
+
+  .mobile_info_title {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    letter-spacing: 0.2em;
+  }
+
+  .mobile_genre_text {
+    margin-bottom: 0.2rem;
+  }
+
+  .test {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1rem;
+
+    &_title {
+      margin-bottom: 0.5rem;
+    }
   }
 }
 
 // == Size Tablet
 @media screen and (min-width: 768px) {
+  // Toute la page
   .mobile_layout_details {
     margin-left: 25%;
   }
 }
 
 // == Size Desktop
-@media screen and (min-width: 1000px) {
-
-}
-
-
-// filter image : filter: opacity(100) grayscale(100%) contrast(130%);
+// @media screen and (min-width: 1000px) {}
