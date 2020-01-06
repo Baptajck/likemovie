@@ -1,0 +1,61 @@
+// == Size Mobile
+@media screen and (min-width: 300px) {
+  .mobile_layout_details {
+    margin-left: 16%;
+    background-color: #161616;
+    height: 100vh;
+    color: #fff;
+  }
+
+  .mobile_header {
+    //display: flex;
+  }
+
+  .mobile_header_cover {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .mobile_header_background{
+    background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url('https://image.tmdb.org/t/p/w1400_and_h450_face/jOzrELAzFxtMx2I4uDGHOotdfsS.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 100%;
+  }
+
+  .image_details {
+    width: 10rem;
+    border-radius: 3%;
+    -moz-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
+    -o-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
+    box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .mobile_header_title {
+    font-family: 'Dosis', sans-serif;
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+// == Size Tablet
+@media screen and (min-width: 768px) {
+  .mobile_layout_details {
+    margin-left: 25%;
+  }
+}
+
+// == Size Desktop
+@media screen and (min-width: 1000px) {
+
+}
+
+
+// filter image : filter: opacity(100) grayscale(100%) contrast(130%);

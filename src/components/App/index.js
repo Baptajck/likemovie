@@ -1,20 +1,22 @@
 // == Import : npm
 import React from 'react';
-import {
-  Route,
-  Switch,
-} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 // == Import : local
 import './app.scss';
 import Home from 'src/components/Home';
 import Sidebar from 'src/components/Sidebar';
+import Details from 'src/components/Details';
 import Error from 'src/components/Error';
 
 // == Composant
 const App = () => (
   <div id="app">
     <Switch>
+      <Route path="/details">
+        <Sidebar />
+        <Details />
+      </Route>
       <Route exact path="/">
         <Sidebar />
         <Home />
