@@ -1,5 +1,9 @@
 // == Import : npm
 import React from 'react';
+import {
+  Route,
+  Switch,
+} from 'react-router-dom';
 
 // == Import : local
 import './app.scss';
@@ -10,9 +14,15 @@ import Error from 'src/components/Error';
 // == Composant
 const App = () => (
   <div id="app">
-    <Sidebar />
-    <Home />
-    {/* <Error /> */}
+    <Switch>
+      <Route exact path="/">
+        <Sidebar />
+        <Home />
+      </Route>
+      <Route path="*">
+        <Error />
+      </Route>
+    </Switch>
   </div>
 );
 

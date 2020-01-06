@@ -5,6 +5,7 @@ import './sidebar.scss';
 
 const Sidebar = () => (
   <>
+    { /* Version Mobile */ }
     <div className="mobile_layout">
       <nav role="navigation">
         <label className="menu back">
@@ -26,6 +27,7 @@ const Sidebar = () => (
         </label>
       </nav>
     </div>
+    { /* Version Desktop */ }
     <div className="classic_layout">
       <nav role="navigation">
         <div className="sidebar_classic">
