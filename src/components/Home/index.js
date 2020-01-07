@@ -51,7 +51,6 @@ const Home = () => (
     <footer>
       <div className="footer">
         <p className="text_footer">Tu trouves pas ?? Va là dessus : <a href="#" className="link_footer">Rechercher</a> &copy; - 2019</p>
-
       </div>
     </footer>
   </>
