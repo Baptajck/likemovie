@@ -9,13 +9,13 @@ const Sidebar = () => (
     { /* Version Mobile */ }
     <div className="mobile_layout">
       <nav role="navigation">
-        <label className="menu back">
-          <input type="checkbox" />
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="30" />
-            <path className="line--1" d="M0 40h62c18 0 18-20-17 5L31 55" />
-            <path className="line--2" d="M0 50h80" />
-            <path className="line--3" d="M0 60h62c18 0 18 20-17-5L31 45" />
+        <label className="menu back sidebar_label">
+          <input className="sidebar_input" type="checkbox" />
+          <svg viewBox="0 0 100 100" className="sidebar_svg" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="30" className="sidebar_circle" />
+            <path className="line--1 sidebar_path" d="M0 40h62c18 0 18-20-17 5L31 55" />
+            <path className="line--2 sidebar_path" d="M0 50h80" />
+            <path className="line--3 sidebar_path" d="M0 60h62c18 0 18 20-17-5L31 45" />
           </svg>
           <nav className="sidebar_mobile">
             <div className="container_logo">

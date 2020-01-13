@@ -7,7 +7,7 @@
   }
   
   // == Menu Hamburger
-  svg {
+  .sidebar_svg {
     position: fixed;
     width: 27%;
     z-index: 3;
@@ -23,7 +23,7 @@
     .line--2 {
       --total-length: 80;
     }
-    input:checked+svg {
+    .sidebar_input:checked+.sidebar_svg {
       .line--1,
       .line--3 {
         --offset: -109.1770175568;
@@ -32,7 +32,7 @@
   }
 
   //Hide cross end of arrow after animation
-  .back input:checked+svg {
+  .back .sidebar_input:checked+.sidebar_svg {
     .line--1,
     .line--3 {
       --length: 8.602325267;
@@ -41,12 +41,12 @@
   }
 
   //Hide Checkbox from label
-  input {
+  .sidebar_input {
     display: none;
   }
 
   //Hamburger menu animation
-  path {
+  .sidebar_path {
     fill: none;
     stroke: #fff;
     stroke-width: 3;
@@ -60,14 +60,9 @@
   }
 
   //Hide circle around path
-  circle {
+  .sidebar_circle {
     fill: #fff3;
     opacity: 0;
-  }
-
-  //Start the animation
-  label input:checked ~ nav {
-    transform: none;
   }
 
   // Sidebar Bar
@@ -151,6 +146,11 @@
         }
       }
     }
+  }
+  
+  //Start the animation
+  .sidebar_label .sidebar_input:checked ~ .sidebar_mobile {
+    transform: none;
   }
 }
 
