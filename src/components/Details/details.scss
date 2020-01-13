@@ -15,21 +15,30 @@
       background-position: center;
       background-blend-mode: darken;
       width: 100%;
+      -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, 
+			color-stop(0.00,  rgba(0,0,0,1)),
+			color-stop(0.35,  rgba(0,0,0,1)),
+			color-stop(0.50,  rgba(0,0,0,1)),
+			color-stop(0.65,  rgba(0,0,0,1)),
+			color-stop(0.85,  rgba(0,0,0,0.6)),
+      color-stop(1.00,  rgba(0,0,0,0)));
+    }
+
+    // note et bande-annonce
+    &_rating, &_trailer {
+      display: none;
     }
 
     // Image de l'affiche
     &_image {
-      width: 7rem;
+      width: 9rem;
       border-radius: 3%;
       -moz-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
       -webkit-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
       -o-box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
       box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
-      margin-left: 15%;
-      // margin-right: auto;
       display: block;
-      margin-top: -2rem;
-      margin-bottom: 2rem;
+      margin: 1rem auto 2rem auto;
     }
 
     // Titre du film
@@ -52,21 +61,6 @@
     &_cover {
       padding-top: 8rem;
       padding-bottom: 2rem;
-    }
-
-    // Lien vers la bande-annonce
-    &_trailer {
-      color: #fff;
-      position: absolute;
-      right: 8%;
-      top: 30%;
-    }
-
-    // Note utilisateurs
-    &_rating {
-      position: absolute;
-      right: 17%;
-      top: 24%;
     }
   }
 
@@ -222,6 +216,24 @@
   // Toute la page
   .mobile_layout_details {
     margin-left: 25%;
+  }
+
+  .mobile_header {
+    // Lien vers la bande-annonce
+    &_trailer {
+      color: #fff;
+      position: absolute;
+      right: 8%;
+      top: 30%;
+      display:none
+    }
+
+    // Note utilisateurs
+    &_rating {
+      position: absolute;
+      right: 17%;
+      top: 24%;
+    }
   }
 }
 

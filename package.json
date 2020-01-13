@@ -1,5 +1,6 @@
 {
   "name": "react-modele",
+  "homepage": "http://baptajck.github.io/likemovie",
   "devDependencies": {
     "@babel/core": "*",
     "@babel/plugin-proposal-class-properties": "*",
@@ -48,16 +49,17 @@
     "build:dev:win": "set NODE_ENV=development && webpack",
     "build:prod": "NODE_ENV=production webpack --mode production",
     "build:prod:win": "set NODE_ENV=production && webpack --mode production",
-    "save-deps": "node updateDeps.js"
+    "save-deps": "node updateDeps.js",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "animate.css": "^3.7.2",
     "axios": "^0.19.0",
     "classnames": "^2.2.6",
+    "gh-pages": "^2.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-icons": "^3.8.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.1.2",
     "react-youtube": "^7.9.0",

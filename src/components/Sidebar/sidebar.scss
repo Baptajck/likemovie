@@ -70,7 +70,7 @@
     transform: none;
   }
 
-  // Navigation Bar
+  // Sidebar Bar
   .sidebar_mobile {
     position: fixed;
     width: 80%;
@@ -87,27 +87,51 @@
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
     z-index: 2;
 
+    // Titre du LOGO
+    &_title {
+      --interval: 2s;
+      display: block;
+      font-size: 3em;
+      letter-spacing: 0.1em;
+      line-height: 40vh;
+      text-shadow: 
+        0 0 10px var(--color1),
+        0 0 20px var(--color2),
+        0 0 40px var(--color3),
+        0 0 80px var(--color4);
+      will-change: filter, color;
+      filter: saturate(60%);
+      animation: flicker steps(100) var(--interval) 1s infinite;
+      color: tomato;
+      --color1: orangered;
+      --color2: firebrick;
+      --color3: maroon;
+      --color4: darkred;
+      font-family: 'Yellowtail', cursive;
+      text-align: center;
+    }
+
     &_links {
       list-style: none;
-      margin: 85% 20%;
+      margin: 10% 20%;
       text-align: right;
       font-weight: 600;
       font-family: 'Open Sans', sans-serif;
+
+      &_item {
+        line-height: 3.5em;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 0.4em;
+        color: rgba(#FFF, 0.35);
+        display: block;
+        transition: all ease-out 300ms;
+      }
       
-      li {
+      &_li {
         position: relative;
         margin: 0.8em 0;
-        
-        a {
-          line-height: 3.5em;
-          text-transform: uppercase;
-          text-decoration: none;
-          letter-spacing: 0.4em;
-          color: rgba(#FFF, 0.35);
-          display: block;
-          transition: all ease-out 300ms;
-        }
-        
+
         &.active a {
           color: white;
         }
@@ -137,11 +161,23 @@
     display: none;
   }
 
+  .sidebar_mobile_title {
+    display: none;
+  }
+
   // Show regular layout
   .classic_layout {
     display: block;
   }
 
+  .container_logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4rem;
+  }
+
+  
   // Sidebar layout
   .sidebar_classic {
     position: fixed;
@@ -149,66 +185,110 @@
     height: 100vh;
     background: #000;
     font-size: 0.65em;
+     
+    &:after {
+      position: absolute;
+      content: "";
+      right: 0;
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    // Titre du LOGO
+    &_title {
+      --interval: 2s;
+      display: block;
+      font-size: 3em;
+      letter-spacing: 0.15em;
+      line-height: 20vh;
+      text-shadow: 
+        0 0 10px var(--color1),
+        0 0 20px var(--color2),
+        0 0 40px var(--color3),
+        0 0 80px var(--color4);
+      will-change: filter, color;
+      filter: saturate(60%);
+      animation: flicker steps(100) var(--interval) 1s infinite;
+      color: tomato;
+      --color1: orangered;
+      --color2: firebrick;
+      --color3: maroon;
+      --color4: darkred;
+      font-family: 'Yellowtail', cursive;
+      text-align: center;
+    }
+
 
     &_links {
       position: relative;
       margin: 0 15%;
       text-align: right;
-      top: 50%;
+      top: 15%;
       transform: translateY(-50%);
       font-weight: 700;
       font-family: 'Open Sans', sans-serif;
-    
-      & ul {
-        list-style: none;
-    
-        li {
-          position: relative;
-          margin: 3.2em 0;
-          
-          a {
-            line-height: 5em;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 0.4em;
-            color: rgba(#FFF, 0.35);
-            display: block;
-            transition: all ease-out 300ms;
-          }
-          
-          &.active a {
-            color: white;
-          }
-          
-          &:not(.active)::after {
-            opacity: 0.2;
-          }
-          
-          &:not(.active):hover a {
-            color: rgba(#FFF, 0.75);
-          }
-    
-          &:hover a::after {
-            background-image: linear-gradient(to left, rgb(255, 203, 57), rgb(161, 121, 9));
-            animation: rotate 3s infinite linear;
-            -webkit-animation: rotate 3s infinite linear;
-          }
-          
-          & ::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 0.2em;
-            left: 0;
-            bottom: 0;
-            background-image: linear-gradient(to left, rgb(161, 121, 9), rgb(255, 203, 57));
-          }
+      list-style: none;
+
+      &_item {
+        line-height: 5em;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 0.4em;
+        color: rgba(#FFF, 0.35);
+        display: block;
+        transition: all ease-out 300ms;
+      }
+
+      &_li {
+        position: relative;
+        margin: 3.2em 0;
+        
+        &.active a {
+          color: white;
+        }
+        
+        &:not(.active)::after {
+          opacity: 0.2;
+        }
+        
+        &:not(.active):hover a {
+          color: rgba(#FFF, 0.75);
+        }
+  
+        &:hover a::after {
+          background-image: linear-gradient(to left, rgb(255, 203, 57), rgb(161, 121, 9));
+          animation: rotate 3s infinite linear;
+          -webkit-animation: rotate 3s infinite linear;
+        }
+        
+        & ::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 0.2em;
+          left: 0;
+          bottom: 0;
+          background-image: linear-gradient(to left, rgb(161, 121, 9), rgb(255, 203, 57));
         }
       }
     }
   }
 }
 
+
+
+// == Desktop Size
+@media screen and (min-width: 992px) {
+  .sidebar_classic_title {
+    font-size: 4.7em;
+    line-height: 30vh;
+  }
+}
+
+
+// KEYFRAMES
 @-webkit-keyframes rotate {
   from {
     background-position: -500px;
@@ -224,5 +304,20 @@
   }
   to { 
     background-position: 0px;
+  }
+}
+
+// Animation du LOGO
+@-webkit-keyframes flicker {
+  50% {
+    color: white;
+    filter: saturate(200%) hue-rotate(20deg);
+  }
+}
+
+@keyframes flicker {
+  50% {
+    color: white;
+    filter: saturate(200%) hue-rotate(20deg);
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import './home.scss';
 import movies from '../../data/movie';
@@ -18,8 +19,10 @@ const Home = () => (
               movies.map((movie) => (
                 <div className="container_movie">
                   <li key={movie.id} className="cover_list">
-                    <img className="cover_img" alt="cover" title={movie.title} src={movie.src} />
-                    <h2 className="title_image">{movie.title}</h2>
+                    <NavLink to="/details">
+                      <img className="cover_img" alt="cover" title={movie.title} src={movie.src} />
+                      <h2 className="title_image">{movie.title}</h2>
+                    </NavLink>
                   </li>
                 </div>
               ))
@@ -37,10 +40,12 @@ const Home = () => (
             {
               shows.map((show) => (
                 <div className="container_movie">
-                  <li key={show.id} className="cover_list">
-                    <img className="cover_img" alt="cover" title={show.title} src={show.src} />
-                    <h2 className="title_image">{show.title}</h2>
-                  </li>
+                  <NavLink to="/details">
+                    <li key={show.id} className="cover_list">
+                      <img className="cover_img" alt="cover" title={show.title} src={show.src} />
+                      <h2 className="title_image">{show.title}</h2>
+                    </li>
+                  </NavLink>
                 </div>
               ))
             }

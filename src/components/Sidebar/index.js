@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import './sidebar.scss';
 
@@ -17,11 +18,30 @@ const Sidebar = () => (
             <path className="line--3" d="M0 60h62c18 0 18 20-17-5L31 45" />
           </svg>
           <nav className="sidebar_mobile">
+            <div className="container_logo">
+              <h1 className="sidebar_mobile_title">Likemovie</h1>
+            </div>
             <ul className="sidebar_mobile_links">
-              <li className="active"><a href="#">Accueil</a></li>
-              <li className=""><a href="http://gamebook.tech">Recherche</a></li>
-              <li className=""><a href="#">A propos</a></li>
-              <li className=""><a href="#">Contact</a></li>
+              <li className="sidebar_mobile_links_li active">
+                <NavLink to="/likemovie" className="sidebar_mobile_links_item">
+                  Accueil
+                </NavLink>
+              </li>
+              <li className="sidebar_mobile_links_li">
+                <NavLink to="/search" className="sidebar_mobile_links_item">
+                  Recherche
+                </NavLink>
+              </li>
+              <li className="sidebar_mobile_links_li">
+                <NavLink to="/" className="sidebar_mobile_links_item">
+                  A propos
+                </NavLink>
+              </li>
+              <li className="sidebar_mobile_links_li">
+                <NavLink to="/contact" className="sidebar_mobile_links_item">
+                  Contact
+                </NavLink>
+              </li>
             </ul>
           </nav>
         </label>
@@ -31,12 +51,31 @@ const Sidebar = () => (
     <div className="classic_layout">
       <nav role="navigation">
         <div className="sidebar_classic">
+          <div className="container_logo">
+            <h1 className="sidebar_classic_title">Likemovie</h1>
+          </div>
           <nav className="sidebar_classic_links">
             <ul>
-              <li className="active"><a href="#">Accueil</a></li>
-              <li className=""><a href="#">Recherche</a></li>
-              <li className=""><a href="#">A propos</a></li>
-              <li className=""><a href="#">Contact</a></li>
+              <li className="sidebar_classic_links_li active">
+                <NavLink to="/likemovie" className="sidebar_classic_links_item">
+                  Accueil
+                </NavLink>
+              </li>
+              <li className="sidebar_classic_links_li">
+                <NavLink to="/search" className="sidebar_classic_links_item">
+                  Recherche
+                </NavLink>
+              </li>
+              <li className="sidebar_classic_links_li">
+                <NavLink to="/" className="sidebar_classic_links_item">
+                  A propos
+                </NavLink>
+              </li>
+              <li className="sidebar_classic_links_li">
+                <NavLink to="/contact" className="sidebar_classic_links_item">
+                  Contact
+                </NavLink>
+              </li>
             </ul>
           </nav>
         </div>

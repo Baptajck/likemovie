@@ -1,5 +1,6 @@
 import React from 'react';
 import YouTube from 'react-youtube';
+import { NavLink } from 'react-router-dom';
 
 import './details.scss';
 
@@ -7,8 +8,8 @@ const Details = () => {
   const opts = {
     height: '183',
     width: '300',
-    playerVars: { // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
+    playerVars: {
+      autoplay: 0,
     },
   };
   return (
@@ -87,7 +88,7 @@ const Details = () => {
             </div>
           </div>
           { /* Trailer */ }
-          <div className="mobile_video animated fadeInRight delay-2s">
+          <div className="mobile_video animated fadeInRight delay-4s">
             <h2 className="mobile_video_title">Bande-annonce</h2>
             <div className="mobile_video_link">
               <YouTube
@@ -100,11 +101,12 @@ const Details = () => {
       </section>
       <footer>
         <div className="footer">
-          <p className="text_footer">Tu trouves pas ?? Va là dessus : <a href="#" className="link_footer">Rechercher</a> &copy; - 2019</p>
+          <p className="text_footer">Tu trouves pas ?? Va là dessus : <NavLink to="/search" className="link_footer">Rechercher</NavLink> &copy; - 2019</p>
         </div>
       </footer>
       { /* Version Desktop */ }
     </>
   );
-}
+};
+
 export default Details;
