@@ -185,6 +185,7 @@
     height: 100vh;
     background: #000;
     font-size: 0.65em;
+    z-index: 2;
      
     &:after {
       position: absolute;
