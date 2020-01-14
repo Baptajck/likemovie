@@ -16,6 +16,33 @@
     line-height: 1rem;
   }
 
+  // Note du film
+  .mobile_rating_background {
+  border-color: #21d07a;
+  border-style: double;
+  border-radius: 100%;
+  border-width: 6px;
+  background-color: #161616;
+  width: 2.5em;
+  height: 2.5em;
+  overflow:hidden;
+  position:relative;
+  margin-top: -2.5rem;
+  display: block;
+  margin-left: 13rem;
+  z-index: 1;
+  }
+
+  .mobile_rating {
+    font-size: 0.85em;
+    line-height: 2em;
+    font-family: 'Dosis', sans-serif;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
   .mobile_header {
     // Photo de couverture
     &_background {
@@ -43,10 +70,11 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
+        margin-top: 1rem;
       }
     }
 
-    // Image de l'affiche
+     // Image de l'affiche
     &_image {
       width: 9rem;
       border-radius: 3%;
@@ -56,6 +84,10 @@
       box-shadow: 0px 0px 15px 0px rgba(122, 121, 121, 0.5);
       display: block;
       margin: 1rem auto 1rem auto;
+
+      &_wrapper {
+        z-index: 1;
+      }
     }
 
     // Titre du film
@@ -241,6 +273,11 @@
     margin-left: 25%;
   }
 
+  // Note du film
+  .mobile_rating_background {
+    margin-left: 22.6rem;
+  }
+  
   .mobile_header{
     &_cover {
     padding-top: 15rem;
@@ -283,5 +320,3 @@
   }
 }
 
-// == Size Desktop
-// @media screen and (min-width: 992px) {}

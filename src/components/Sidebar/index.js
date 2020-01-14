@@ -19,7 +19,11 @@ const Sidebar = () => (
           </svg>
           <nav className="sidebar_mobile">
             <div className="container_logo">
-              <h1 className="sidebar_mobile_title">Likemovie</h1>
+              <h1 className="sidebar_mobile_title">
+                <NavLink to="/likemovie">
+                  Likemovie
+                </NavLink>
+              </h1>
             </div>
             <ul className="sidebar_mobile_links">
               <li className="sidebar_mobile_links_li active">
@@ -52,7 +56,11 @@ const Sidebar = () => (
       <nav role="navigation">
         <div className="sidebar_classic">
           <div className="container_logo">
-            <h1 className="sidebar_classic_title">Likemovie</h1>
+            <h1 className="sidebar_classic_title">
+              <NavLink to="/likemovie">
+                Likemovie
+              </NavLink>
+            </h1>
           </div>
           <nav className="sidebar_classic_links">
             <ul>

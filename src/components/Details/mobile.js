@@ -27,7 +27,12 @@ const MobileDetails = () => {
         <div className="mobile_header_background">
           <div className="mobile_header_cover"> </div>
         </div>
-        <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/db32LaOibwEliAmSL2jjDF6oDdj.jpg" className="mobile_header_image" alt="movie_poster" />
+        <div className="mobile_header_image_wrapper">
+          <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/db32LaOibwEliAmSL2jjDF6oDdj.jpg" className="mobile_header_image" alt="movie_poster" />
+        </div>
+        <div className="mobile_rating_background">
+          <h4 className="mobile_rating">3</h4>
+        </div>
         <a className="mobile_header_trailer_button" href="#trailer" title="Regarder la bande-annonce">
           <span className="details_arrow"><IoIosArrowRoundDown /></span>
           &nbsp; Voir la bande-annonce &nbsp;

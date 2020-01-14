@@ -13,12 +13,12 @@ const Home = () => (
         <h1 className="title_category">Films</h1>
       </div>
       <div className="section">
-        <div className="cover_movies">
+        <ul className="cover_movies">
           <ul className="cover_movies_list">
             {
               movies.map((movie) => (
-                <div className="container_movie">
-                  <li key={movie.id} className="cover_list">
+                <div key={movie.id} className="container_movie">
+                  <li className="cover_list">
                     <NavLink to="/details">
                       <img className="cover_img" alt="cover" title={movie.title} src={movie.src} />
                       <h2 className="title_image">{movie.title}</h2>
@@ -28,7 +28,7 @@ const Home = () => (
               ))
             }
           </ul>
-        </div>
+        </ul>
       </div>
       {/* SECTION SHOWS */}
       <div className="title_category_shows">
@@ -39,9 +39,9 @@ const Home = () => (
           <ul className="cover_shows_list">
             {
               shows.map((show) => (
-                <div className="container_movie">
+                <div key={show.id} className="container_movie">
                   <NavLink to="/details">
-                    <li key={show.id} className="cover_list">
+                    <li className="cover_list">
                       <img className="cover_img" alt="cover" title={show.title} src={show.src} />
                       <h2 className="title_image">{show.title}</h2>
                     </li>
@@ -55,7 +55,7 @@ const Home = () => (
     </div>
     <footer>
       <div className="footer">
-        <p className="text_footer">Tu trouves pas ?? Va là dessus : <a href="#" className="link_footer">Rechercher</a> &copy; - 2019</p>
+        <p className="text_footer">Tu trouves pas ?? Va là dessus : <a href="#" className="link_footer">Rechercher</a> &copy; - 2020</p>
       </div>
     </footer>
   </>

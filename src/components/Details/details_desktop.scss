@@ -5,6 +5,7 @@
     display: none;
   }
 
+
   // Format Desktop container qui enveloppe tout
   .desktop_details {
     margin-left: 25%;
@@ -113,9 +114,62 @@
     }
   }
 
+//   @for $i from 1 through 3 {
+//     .desktop-rating-background-class#{$i} {
+//         border-style: #db2360*$i;
+//     }
+// }
+
+  // Note du film
+  .desktop_rating_background {
+    border-style: double;
+    border-radius: 100%;
+    border-width: 6px;
+    width: 3.5em;
+    height: 3.5em;
+    overflow:hidden;
+    position:relative;
+    margin-top: 1rem;
+    border-color: #db2360;
+  }
+  
+  .desktop_rating_background_class1 {
+    border-color: #d2d531;
+    border-style: double;
+    border-radius: 100%;
+    border-width: 6px;
+    width: 3.5em;
+    height: 3.5em;
+    overflow:hidden;
+    position:relative;
+    margin-top: 1rem;
+  }
+
+  .desktop_rating_background_class2 {
+    border-color: #21d07a;
+    border-style: double;
+    border-radius: 100%;
+    border-width: 6px;
+    width: 3.5em;
+    height: 3.5em;
+    overflow:hidden;
+    position:relative;
+    margin-top: 1rem;
+  }
+
+  .desktop_rating {
+    font-size: 1.2em;
+    line-height: 2.3em;
+    font-family: 'Dosis', sans-serif;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
   // Synopsis & informations
   .desktop_synopsis_title {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     font-weight: 700;
     padding: 1rem 0;
   }
