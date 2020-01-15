@@ -1,18 +1,30 @@
+/* eslint-disable camelcase */
 // == Initial State
 const initialState = {
-  message: 'Hello',
+  films: [],
+  tvShows: [],
 };
 
 // == Types
-const DO_SOMETHING = 'DO_SOMETHING';
+export const GET_FILM = 'GET_FILM';
+const SHOW_FILM = 'SHOW_FILM';
+
+export const GET_TVSHOW = 'GET_TVSHOW';
+const SHOW_TVSHOW = 'SHOW_TVSHOW';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case DO_SOMETHING:
+    case SHOW_FILM:
       return {
         ...state,
-        message: action.message,
+        films: action.films,
+      };
+
+    case SHOW_TVSHOW:
+      return {
+        ...state,
+        tvShows: action.tvShows,
       };
 
     default:
@@ -21,11 +33,23 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // == Action Creators
-export const doSomething = message => ({
-  type: DO_SOMETHING,
-  message,
+export const show_film = (films) => ({
+  type: SHOW_FILM,
+  films,
 });
 
+export const get_film = () => ({
+  type: GET_FILM,
+});
+
+export const show_tvShow = (tvShows) => ({
+  type: SHOW_TVSHOW,
+  tvShows,
+});
+
+export const get_tvShow = () => ({
+  type: GET_TVSHOW,
+});
 
 // == Selectors
 

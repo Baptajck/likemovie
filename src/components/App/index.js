@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 // == Import : local
 import './app.scss';
-import Home from 'src/components/Home';
+import Home from 'src/containers/home';
 import Sidebar from 'src/components/Sidebar';
 import Details from 'src/components/Details';
 import Error from 'src/components/Error';
