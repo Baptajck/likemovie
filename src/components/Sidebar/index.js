@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+// import { classNames } from 'classnames';
 
 import './sidebar.scss';
 
@@ -26,22 +27,22 @@ const Sidebar = () => (
               </h1>
             </div>
             <ul className="sidebar_mobile_links">
-              <li className="sidebar_mobile_links_li active">
+              <li className="sidebar_mobile_links_li" activeClassName="active">
                 <NavLink to="/likemovie" className="sidebar_mobile_links_item">
                   Accueil
                 </NavLink>
               </li>
-              <li className="sidebar_mobile_links_li">
+              <li className="sidebar_mobile_links_li" activeClassName="active">
                 <NavLink to="/search" className="sidebar_mobile_links_item">
                   Recherche
                 </NavLink>
               </li>
-              <li className="sidebar_mobile_links_li">
-                <NavLink to="/" className="sidebar_mobile_links_item">
+              <li className="sidebar_mobile_links_li" activeClassName="active">
+                <NavLink to="/toto" className="sidebar_mobile_links_item">
                   A propos
                 </NavLink>
               </li>
-              <li className="sidebar_mobile_links_li">
+              <li className="sidebar_mobile_links_li" activeClassName="active">
                 <NavLink to="/contact" className="sidebar_mobile_links_item">
                   Contact
                 </NavLink>
@@ -64,23 +65,23 @@ const Sidebar = () => (
           </div>
           <nav className="sidebar_classic_links">
             <ul>
-              <li className="sidebar_classic_links_li active">
-                <NavLink to="/likemovie" className="sidebar_classic_links_item">
+              <li className="sidebar_classic_links_li">
+                <NavLink to="/likemovie" className="sidebar_classic_links_item" activeClassName="active">
                   Accueil
                 </NavLink>
               </li>
               <li className="sidebar_classic_links_li">
-                <NavLink to="/search" className="sidebar_classic_links_item">
+                <NavLink to="/search" className="sidebar_classic_links_item" activeClassName="active">
                   Recherche
                 </NavLink>
               </li>
               <li className="sidebar_classic_links_li">
-                <NavLink to="/" className="sidebar_classic_links_item">
+                <NavLink to="/toto" className="sidebar_classic_links_item" activeClassName="active">
                   A propos
                 </NavLink>
               </li>
               <li className="sidebar_classic_links_li">
-                <NavLink to="/contact" className="sidebar_classic_links_item">
+                <NavLink to="/contact" className="sidebar_classic_links_item" activeClassName="active">
                   Contact
                 </NavLink>
               </li>

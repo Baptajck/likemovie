@@ -5,7 +5,7 @@
   .classic_layout {
     display: none;
   }
-  
+
   // == Menu Hamburger
   .sidebar_svg {
     position: fixed;
@@ -123,16 +123,13 @@
         transition: all ease-out 300ms;
       }
       
+      
       &_li {
         position: relative;
         margin: 0.8em 0;
 
-        &.active a {
+        .active {
           color: white;
-        }
-        
-        &:not(.active)::after {
-          opacity: 0.2;
         }
         
         & ::after {
@@ -240,24 +237,16 @@
         color: rgba(#FFF, 0.35);
         display: block;
         transition: all ease-out 300ms;
+
+        &.active {
+          color: white;
+        }
       }
 
       &_li {
         position: relative;
         margin: 3.2em 0;
         
-        &.active a {
-          color: white;
-        }
-        
-        &:not(.active)::after {
-          opacity: 0.2;
-        }
-        
-        &:not(.active):hover a {
-          color: rgba(#FFF, 0.75);
-        }
-  
         &:hover a::after {
           background-image: linear-gradient(to left, rgb(255, 203, 57), rgb(161, 121, 9));
           animation: rotate 3s infinite linear;
@@ -287,7 +276,6 @@
     line-height: 30vh;
   }
 }
-
 
 // KEYFRAMES
 @-webkit-keyframes rotate {

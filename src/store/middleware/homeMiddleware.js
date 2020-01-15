@@ -41,7 +41,7 @@ const homeMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           const save = show_tvShow(response.data.results);
           store.dispatch(save);
         })
