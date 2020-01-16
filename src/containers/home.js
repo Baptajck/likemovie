@@ -6,13 +6,13 @@ import { connect } from 'react-redux';
 import Home from 'src/components/Home';
 
 // Action Creators
-import { get_film, get_tvShow } from 'src/store/reducer';
+import { get_film, get_tvShow } from 'src/store/reducer/home';
 
 /* === State (données) === */
 
 const mapStateToProps = (state) => ({
-  films: state.films,
-  tvShows: state.tvShows,
+  films: state.home.films,
+  tvShows: state.home.tvShows,
 });
 
 /* === Actions === */

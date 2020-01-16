@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import './home.scss';
+import { getSlugByName } from 'src/utils/selectors';
+// import { show_details_movie } from 'src/store/reducer/details';
 
 class Home extends React.Component {
   componentDidMount() {
@@ -29,7 +31,7 @@ class Home extends React.Component {
                   films.map(({ id, title, poster_path }) => (
                     <div key={id} className="container_movie">
                       <li className="cover_list">
-                        <NavLink to="/details">
+                        <NavLink to={`/details/${id}/${getSlugByName(title)}`}>
                           <img className="cover_img" alt="cover" title={title} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
                           <h2 className="title_image">{title}</h2>
                         </NavLink>
@@ -40,6 +42,7 @@ class Home extends React.Component {
               </ul>
             </ul>
           </div>
+          <hr className="home_seperation" />
           {/* SECTION SHOWS */}
           <div className="title_category_shows">
             <h1 className="title_category">Séries</h1>
@@ -51,7 +54,7 @@ class Home extends React.Component {
                 {
                   tvShows.map(({ id, name, poster_path }) => (
                     <div key={id} className="container_movie">
-                      <NavLink to="/details">
+                      <NavLink to={`/details/${id}/${getSlugByName(name)}`}>
                         <li className="cover_list">
                           <img className="cover_img" alt="cover" title={name} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
                           <h2 className="title_image">{name}</h2>
@@ -88,7 +91,7 @@ Home.propTypes = {
   tvShows: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
-      title: PropTypes.string,
+      name: PropTypes.string,
       poster_path: PropTypes.string,
     }),
   ).isRequired,

@@ -1,19 +1,19 @@
 // == Import : npm
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 // == Import : local
 import './app.scss';
 import Home from 'src/containers/home';
 import Sidebar from 'src/components/Sidebar';
-import Details from 'src/components/Details';
+import { Details } from 'src/components/Details';
 import Error from 'src/components/Error';
 
 // == Composant
 const App = () => (
   <div id="app">
     <Switch>
-      <Route path="/details">
+      <Route path="/details/:id/:slug">
         <Sidebar />
         <Details />
       </Route>
@@ -29,4 +29,4 @@ const App = () => (
 );
 
 // == Export
-export default App;
+export default withRouter(App);

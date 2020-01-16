@@ -27,22 +27,22 @@ const Sidebar = () => (
               </h1>
             </div>
             <ul className="sidebar_mobile_links">
-              <li className="sidebar_mobile_links_li" activeClassName="active">
+              <li className="sidebar_mobile_links_li" activeclassname="active">
                 <NavLink to="/likemovie" className="sidebar_mobile_links_item">
                   Accueil
                 </NavLink>
               </li>
-              <li className="sidebar_mobile_links_li" activeClassName="active">
+              <li className="sidebar_mobile_links_li" activeclassname="active">
                 <NavLink to="/search" className="sidebar_mobile_links_item">
                   Recherche
                 </NavLink>
               </li>
-              <li className="sidebar_mobile_links_li" activeClassName="active">
+              <li className="sidebar_mobile_links_li" activeclassname="active">
                 <NavLink to="/toto" className="sidebar_mobile_links_item">
                   A propos
                 </NavLink>
               </li>
-              <li className="sidebar_mobile_links_li" activeClassName="active">
+              <li className="sidebar_mobile_links_li" activeclassname="active">
                 <NavLink to="/contact" className="sidebar_mobile_links_item">
                   Contact
                 </NavLink>
@@ -66,22 +66,22 @@ const Sidebar = () => (
           <nav className="sidebar_classic_links">
             <ul>
               <li className="sidebar_classic_links_li">
-                <NavLink to="/likemovie" className="sidebar_classic_links_item" activeClassName="active">
+                <NavLink to="/likemovie" className="sidebar_classic_links_item" activeclassname="active">
                   Accueil
                 </NavLink>
               </li>
               <li className="sidebar_classic_links_li">
-                <NavLink to="/search" className="sidebar_classic_links_item" activeClassName="active">
+                <NavLink to="/details" className="sidebar_classic_links_item" activeclassname="active">
                   Recherche
                 </NavLink>
               </li>
               <li className="sidebar_classic_links_li">
-                <NavLink to="/toto" className="sidebar_classic_links_item" activeClassName="active">
+                <NavLink to="/toto" className="sidebar_classic_links_item" activeclassname="active">
                   A propos
                 </NavLink>
               </li>
               <li className="sidebar_classic_links_li">
-                <NavLink to="/contact" className="sidebar_classic_links_item" activeClassName="active">
+                <NavLink to="/contact" className="sidebar_classic_links_item" activeclassname="active">
                   Contact
                 </NavLink>
               </li>

@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import axios from 'axios';
-import { GET_FILM, show_film, GET_TVSHOW, show_tvShow } from 'src/store/reducer';
+import { GET_FILM, show_film, GET_TVSHOW, show_tvShow } from 'src/store/reducer/home';
 
 const homeMiddleware = (store) => (next) => (action) => {
   // console.log('Je suis le middleware, et je laisse passer cette action: ', action);
