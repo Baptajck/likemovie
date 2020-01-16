@@ -29,7 +29,7 @@ class Home extends React.Component {
               <ul className="cover_movies_list">
                 {
                   films.map(({ id, title, poster_path }) => (
-                    <div key={id} className="container_movie">
+                    <div key={id} id={`movie-${id}`} className="container_movie">
                       <li className="cover_list">
                         <NavLink to={`/details/${id}/${getSlugByName(title)}`}>
                           <img className="cover_img" alt="cover" title={title} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />

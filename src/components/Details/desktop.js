@@ -1,10 +1,19 @@
+/* eslint-disable camelcase */
 import React from 'react';
+import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 import { IoIosArrowRoundDown } from 'react-icons/io';
 
 import './details_desktop.scss';
 
-const DesktopDetails = () => {
+const DesktopDetails = ({
+  title,
+  backdrop_path,
+  id,
+  overview,
+  poster_path,
+  budget,
+  vote_average }) => {
   const optsDesktop = {
     height: '366',
     width: '600',
@@ -12,7 +21,7 @@ const DesktopDetails = () => {
       autoplay: 0,
     },
   };
-
+  console.log('je suis les props de desktop', title, backdrop_path, id, overview, poster_path, vote_average);
   return (
     <div className="desktop_details">
       <div className="desktop_details_background_effect">
@@ -20,20 +29,20 @@ const DesktopDetails = () => {
           <div className="desktop_details_presentation">
             <section className="desktop_details_presentation_infos">
               <div className="desktop_details_column_poster">
-                <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/db32LaOibwEliAmSL2jjDF6oDdj.jpg" className="desktop_header_image" alt="movie_poster" />
+                <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${poster_path}`} className="desktop_header_image" alt="movie_poster" />
               </div>
               <div className="desktop_details_column_details">
-                <h1 className="desktop_header_title">Star Wars: The Rise of Skywalker</h1>
+                <h1 className="desktop_header_title">{title}</h1>
                 <a className="desktop_header_trailer_button" href="#trailer" title="Regarder la bande-annonce">
                   <span className="details_arrow"><IoIosArrowRoundDown /></span>
                 &nbsp; Voir la bande-annonce &nbsp;
                   <img className="desktop_header_trailer" src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="" />
                 </a>
                 <div className="desktop_rating_background">
-                  <h4 className="desktop_rating">6</h4>
+                  <h4 className="desktop_rating">{vote_average}</h4>
                 </div>
                 <h2 className="desktop_synopsis_title">Synopsis</h2>
-                <p className="desktop_synopsis_text">La conclusion de la saga Skywalker. De nouvelles légendes vont naître dans cette bataille épique pour la liberté.</p>
+                <p className="desktop_synopsis_text">{overview}</p>
                 <h2 className="desktop_info_title">Informations</h2>
                 <div className="desktop_info">
                   <div className="desktop_info_stats">
@@ -47,7 +56,7 @@ const DesktopDetails = () => {
                     <div className="desktop_info_column_left">
                       <p className="desktop_info_text">Sorti</p>
                       <p className="desktop_info_text">2h21</p>
-                      <p className="desktop_info_text">$250,000,000.00</p>
+                      <p className="desktop_info_text">${budget}</p>
                       <p className="desktop_info_text">$704,330,816.00</p>
                       <div className="tags">
                         <p className="desktop_info_text">Action</p>
@@ -133,6 +142,16 @@ const DesktopDetails = () => {
       </div>
     </div>
   );
+};
+
+DesktopDetails.propTypes = {
+  title: PropTypes.string.isRequired,
+  backdrop_path: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  overview: PropTypes.string.isRequired,
+  poster_path: PropTypes.string.isRequired,
+  budget: PropTypes.string.isRequired,
+  vote_average: PropTypes.number.isRequired,
 };
 
 export default DesktopDetails;
