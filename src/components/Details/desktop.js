@@ -1,27 +1,29 @@
+/* eslint-disable react/prefer-stateless-function */
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
-import YouTube from 'react-youtube';
-import { IoIosArrowRoundDown } from 'react-icons/io';
+
 
 import './details_desktop.scss';
 
-const DesktopDetails = ({
-  title,
-  backdrop_path,
-  id,
-  overview,
-  poster_path,
-  budget,
-  vote_average }) => {
-  const optsDesktop = {
-    height: '366',
-    width: '600',
-    playerVars: {
-      autoplay: 0,
-    },
-  };
-  console.log('je suis les props de desktop', title, backdrop_path, id, overview, poster_path, vote_average);
+const DesktopDetails = (props) => {
+  const {
+    title,
+    // backdrop_path,
+    // id,
+    overview,
+    poster_path,
+    budget,
+    vote_average,
+    release_date,
+    runtime,
+    revenue,
+    detailsVideos,
+    detailsCrews,
+    detailsCasts,
+  } = props;
+
+
   return (
     <div className="desktop_details">
       <div className="desktop_details_background_effect">
@@ -47,21 +49,21 @@ const DesktopDetails = ({
                 <div className="desktop_info">
                   <div className="desktop_info_stats">
                     <div className="desktop_info_column">
-                      <h3 className="desktop_info_subtitle">Statut :</h3>
+                      <h3 className="desktop_info_subtitle">Date de sortie :</h3>
                       <h3 className="desktop_info_subtitle">Durée :</h3>
                       <h3 className="desktop_info_subtitle">Budget :</h3>
                       <h3 className="desktop_info_subtitle">Recette :</h3>
                       <h3 className="desktop_info_subtitle">Genre :</h3>
                     </div>
                     <div className="desktop_info_column_left">
-                      <p className="desktop_info_text">Sorti</p>
-                      <p className="desktop_info_text">2h21</p>
+                      <p className="desktop_info_text">{release_date}</p>
+                      <p className="desktop_info_text">{runtime} minutes</p>
                       <p className="desktop_info_text">${budget}</p>
-                      <p className="desktop_info_text">$704,330,816.00</p>
+                      <p className="desktop_info_text">${revenue}</p>
                       <div className="tags">
-                        <p className="desktop_info_text">Action</p>
-                        <p className="desktop_info_text">Aventure</p>
-                        <p className="desktop_info_text">Science-fiction</p>
+                        {/* {props.genres.map((a) => (
+                          <p className="desktop_info_text">{a.name}</p>
+                        ))} */}
                       </div>
                     </div>
                   </div>
@@ -74,84 +76,109 @@ const DesktopDetails = ({
       {/* Producteurs */}
       <h2 className="desktop_casting_title">Equipe technique</h2>
       <div className="desktop_casting_section">
-        <div className="desktop_casting">
-          <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/h0o12c399M5hTKWl0qdgwhaddNt.jpg" className="desktop_casting_image" alt="actor_image_Abrams" />
-          <h2 className="desktop_casting_actor">J.J. Abrams</h2>
-          <h3 className="desktop_casting_name">Screenplay, Director, Story</h3>
-        </div>
-        <div className="desktop_casting">
-          <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/oljJKka3NTgiQhqhDs1SaCtcWMW.jpg" className="desktop_casting_image" alt="actor_image_Terrio" />
-          <h2 className="desktop_casting_actor">Chris Terrio</h2>
-          <h3 className="desktop_casting_name">Screenplay, Story</h3>
-        </div>
-        <div className="desktop_casting">
-          <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/8qxin8urtFE0NqaZNFWOuV537bH.jpg" className="desktop_casting_image" alt="actor_image_Lucas" />
-          <h2 className="desktop_casting_actor">George Lucas</h2>
-          <h3 className="desktop_casting_name">Characters</h3>
-        </div>
-        <div className="desktop_casting">
-          <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/k1VQLCP4RAAkuXZ5HWrdL1NQnWR.jpg" className="desktop_casting_image" alt="actor_image_Connolly" />
-          <h2 className="desktop_casting_actor">Derek Connolly</h2>
-          <h3 className="desktop_casting_name">Story</h3>
-        </div>
-        <div className="desktop_casting">
-          <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/i0HBClPMPKn3aq8QeQqyThS67EK.jpg" className="desktop_casting_image" alt="actor_image_Carrie Fisher" />
-          <h2 className="desktop_casting_actor">Colin Trevorrow</h2>
-          <h3 className="desktop_casting_name">Story</h3>
-        </div>
+        {
+          detailsCrews.filter((c) => c.name !== '' && c.profile_path !== null)
+            .slice(0, 5)
+            .map(({
+              credit_id, name, profile_path, job,
+            }) => (
+              <div key={credit_id} className="desktop_casting">
+                <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="desktop_casting_image" alt={`${name}`} />
+                <h2 className="desktop_casting_actor"> {name}</h2>
+                <h3 className="desktop_casting_name">{job}</h3>
+              </div>
+            ))
+        }
       </div>
       <hr className="details_seperation" />
       {/* Acteurs */}
       <h2 className="desktop_casting_title">Acteurs / Actrices</h2>
       <div className="desktop_casting_section">
-        <div className="desktop_casting">
-          <img src="https://image.tmdb.org/t/p/w138_and_h175_face/siYuX9LyL3Y8ngxNgurPtfMIWsQ.jpg" className="desktop_casting_image" alt="actor_image_Rey" />
-          <h2 className="desktop_casting_actor">Daisy Ridley</h2>
-          <h3 className="desktop_casting_name">Rey</h3>
-        </div>
-        <div className="desktop_casting">
-          <img src="https://image.tmdb.org/t/p/w138_and_h175_face/idr2vphzhidyMGOp0ky6RqUMah8.jpg" className="desktop_casting_image" alt="actor_image_Finn" />
-          <h2 className="desktop_casting_actor">John Boyega</h2>
-          <h3 className="desktop_casting_name">Finn</h3>
-        </div>
-        <div className="desktop_casting">
-          <img src="https://image.tmdb.org/t/p/w138_and_h175_face/cY6ail3ebXDx9FCoZMgVGAbmBus.jpg" className="desktop_casting_image" alt="actor_image_Poe" />
-          <h2 className="desktop_casting_actor">Oscar Isaac</h2>
-          <h3 className="desktop_casting_name">Poe Dameron</h3>
-        </div>
-        <div className="desktop_casting">
-          <img src="https://image.tmdb.org/t/p/w138_and_h175_face/rsjwgpV2OukxOJ9HEiEyf4qu1vR.jpg" className="desktop_casting_image" alt="actor_image_Kylo Ren" />
-          <h2 className="desktop_casting_actor">Adam Driver</h2>
-          <h3 className="desktop_casting_name">Kylo Ren</h3>
-        </div>
-        <div className="desktop_casting">
-          <img src="https://image.tmdb.org/t/p/w138_and_h175_face/rfJtncHewKVnHjqpIZvjn24ESeC.jpg" className="desktop_casting_image" alt="actor_image_Carrie Fisher" />
-          <h2 className="desktop_casting_actor">Carrie Fisher</h2>
-          <h3 className="desktop_casting_name">General Leia Organa</h3>
-        </div>
+        {
+          detailsCasts.filter((c) => c.name !== '' && c.profile_path !== null)
+            .slice(0, 5)
+            .map(({
+              cast_id, name, profile_path, character,
+            }) => (
+              <div key={cast_id} className="desktop_casting">
+                <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="desktop_casting_image" alt={`${name}`} />
+                <h2 className="desktop_casting_actor"> {name}</h2>
+                <h3 className="desktop_casting_name">{character}</h3>
+              </div>
+            ))
+        }
       </div>
       <hr className="details_seperation" />
       <div className="desktop_video" id="trailer">
         <h2 className="desktop_video_title">Bande-annonce</h2>
         <div className="desktop_video_link">
-          <YouTube
-            videoId="bw1lOJ776y8"
-            opts={optsDesktop}
-          />
+          {
+            detailsVideos.slice(0, 1)
+              .map(({ key }) => (
+                <YouTube
+                  videoId={key}
+                  opts={optsDesktop}
+                />
+              ))
+          }
         </div>
       </div>
     </div>
   );
 };
 
+
 DesktopDetails.propTypes = {
-  title: PropTypes.string.isRequired,
-  backdrop_path: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  overview: PropTypes.string.isRequired,
-  poster_path: PropTypes.string.isRequired,
-  budget: PropTypes.string.isRequired,
-  vote_average: PropTypes.number.isRequired,
+  title: PropTypes.string,
+  // backdrop_path: PropTypes.string,
+  // id: PropTypes.number,
+  overview: PropTypes.string,
+  poster_path: PropTypes.string,
+  budget: PropTypes.number,
+  vote_average: PropTypes.number,
+  revenue: PropTypes.number,
+  runtime: PropTypes.number,
+  release_date: PropTypes.string,
+  // genres: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     name: PropTypes.string,
+  //   }),
+  // ),
+  detailsCrews: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      job: PropTypes.string,
+      profile_path: PropTypes.string,
+    }),
+  ).isRequired,
+  detailsCasts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      character: PropTypes.string,
+      profile_path: PropTypes.string,
+    }),
+  ).isRequired,
+  detailsVideos: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string,
+    }),
+  ).isRequired,
+};
+
+DesktopDetails.defaultProps = {
+  title: '',
+  // backdrop_path: '',
+  // id: 0,
+  overview: '',
+  poster_path: '',
+  budget: 0,
+  vote_average: 0,
+  revenue: 0,
+  runtime: 0,
+  release_date: '',
+  // genres: {
+  //   name: '',
+  // },
 };
 
 export default DesktopDetails;

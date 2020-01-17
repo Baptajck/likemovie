@@ -6,33 +6,51 @@ import { connect } from 'react-redux';
 import Details from 'src/components/Details';
 
 // Action Creators
-import { getFetchMovie } from 'src/store/reducer/details';
+import {
+  getFetchMovie,
+  getFetchCrew,
+  getFetchCast,
+  getFetchVideo,
+} from 'src/store/reducer/details';
+
 
 /* === State (données) === */
 
 const mapStateToProps = (state) => {
-  // console.log(state);
+  // console.log('Je suis container', ownProps);
   return {
     detailsMovies: state.details.detailsMovies,
+    detailsCrews: state.details.detailsCrews,
+    detailsCasts: state.details.detailsCasts,
+    detailsVideos: state.details.detailsVideos,
   };
 };
 
 /* === Actions === */
 
 const mapDispatchToProps = (dispatch) => ({
+  getFetchCrew: (id) => {
+    dispatch(getFetchCrew(id));
+  },
   getFetchMovie: (id) => {
     dispatch(getFetchMovie(id));
+  },
+  getFetchCast: (id) => {
+    dispatch(getFetchCast(id));
+  },
+  getFetchVideo: (id) => {
+    dispatch(getFetchVideo(id));
   },
 });
 
 // Container
-const HomeContainer = connect(
+const DetailsContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Details);
 
 // == Export
-export default HomeContainer;
+export default DetailsContainer;
 
 /* = export à la volée
 export default connect(
