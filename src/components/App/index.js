@@ -8,22 +8,20 @@ import Home from 'src/containers/home';
 import Sidebar from 'src/components/Sidebar';
 import Details from 'src/containers/details';
 import Error from 'src/components/Error';
-// import TVShows from 'src/components/TVShows';
+import TVShow from 'src/containers/tv';
 
 // == Composant
 const App = () => (
   <div id="app">
     <Switch>
-      <Route path="/details/:id/:slug">
+      <Route path="/movie/:id/:slug">
         <Sidebar />
         <Details />
       </Route>
-      {/*
       <Route path="/tv/:id/:slug">
         <Sidebar />
-        <TVShows />
+        <TVShow />
       </Route>
-      */}
       <Route exact path="/likemovie">
         <Sidebar />
         <Home />

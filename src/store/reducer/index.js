@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 // on importe chacun des sous-reducers
 import home from './home';
 import details from './details';
+import tv from './tv';
 
 // combineReducers nous retourne le reducer parent généré
 // on doit fournir en paramètre un objet
@@ -12,6 +13,7 @@ const reducer = combineReducers({
   // user: user
   home,
   details,
+  tv,
 });
 
 export default reducer;

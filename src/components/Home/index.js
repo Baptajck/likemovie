@@ -16,6 +16,7 @@ class Home extends React.Component {
 
   render() {
     const { films, tvShows } = this.props;
+    document.title = 'Likemovie';
     return (
       <div>
         <div className="home">
@@ -31,7 +32,7 @@ class Home extends React.Component {
                   films.map(({ id, title, poster_path }) => (
                     <div key={id} id={`movie-${id}`} className="container_movie">
                       <li className="cover_list">
-                        <NavLink to={`/details/${id}/${getSlugByName(title)}`}>
+                        <NavLink to={`/movie/${id}/${getSlugByName(title)}`}>
                           <img className="cover_img" alt="cover" title={title} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
                           <h2 className="title_image">{title}</h2>
                         </NavLink>
@@ -54,7 +55,7 @@ class Home extends React.Component {
                 {
                   tvShows.map(({ id, name, poster_path }) => (
                     <div key={id} className="container_movie">
-                      <NavLink to={`/details/${id}/${getSlugByName(name)}`}>
+                      <NavLink to={`/tv/${id}/${getSlugByName(name)}`}>
                         <li className="cover_list">
                           <img className="cover_img" alt="cover" title={name} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
                           <h2 className="title_image">{name}</h2>
