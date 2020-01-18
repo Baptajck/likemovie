@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 // == Import : local
 import './app.scss';
+import ScrollToTop from 'src/components/ScrollToTop';
 import Home from 'src/containers/home';
 import Sidebar from 'src/components/Sidebar';
 import Details from 'src/containers/details';
@@ -13,6 +14,7 @@ import TVShow from 'src/containers/tv';
 // == Composant
 const App = () => (
   <div id="app">
+    <ScrollToTop />
     <Switch>
       <Route path="/movie/:id/:slug">
         <Sidebar />

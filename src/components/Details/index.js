@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
 import { IoIosArrowRoundDown } from 'react-icons/io';
 
-import Mobile from 'src/components/Details/mobile';
+// import Mobile from 'src/components/Details/mobile';
 
-import './details_desktop.scss';
+import './movie.scss';
 
-export default class Details extends React.Component {
+export default class Movies extends React.Component {
   componentDidMount() {
     const {
       getFetchMovie, getFetchCrew, getFetchCast, getFetchVideo,
@@ -35,6 +35,22 @@ export default class Details extends React.Component {
     const optsDesktop = {
       height: '366',
       width: '600',
+      playerVars: {
+        autoplay: 0,
+      },
+    };
+
+    const optsMobile = {
+      height: '183',
+      width: '300',
+      playerVars: {
+        autoplay: 0,
+      },
+    };
+
+    const optsIpad = {
+      height: '366',
+      width: '550',
       playerVars: {
         autoplay: 0,
       },
@@ -144,7 +160,119 @@ export default class Details extends React.Component {
             </div>
           </div>
         </div>
-        <Mobile />
+        {/* FORMAT TABLETTE ET MOBILE */}
+        <section className="mobile_layout_details">
+          <header className="mobile_header">
+            <div className="mobile_header_background">
+              <div className="mobile_header_cover"> </div>
+            </div>
+            <div className="mobile_header_image_wrapper">
+              <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${detailsMovies.poster_path}`} className="mobile_header_image" alt="movie_poster" />
+            </div>
+            <div className="mobile_rating_background">
+              <h4 className="mobile_rating">{detailsMovies.vote_average}</h4>
+            </div>
+            <a className="mobile_header_trailer_button" href="#trailer" title="Regarder la bande-annonce">
+              <span className="details_arrow"><IoIosArrowRoundDown /></span>
+              &nbsp; Voir la bande-annonce &nbsp;
+              <img className="mobile_header_trailer" src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="" />
+            </a>
+            <h1 className="mobile_header_title">
+              {detailsMovies.name}
+            </h1>
+          </header>
+          <main className="mobile">
+            { /* Synopsis */ }
+            <div className="mobile_synopsis animated fadeInLeft delay-1s">
+              <h2 className="mobile_synopsis_title">Synopsis</h2>
+              <p className="mobile_synopsis_text">{detailsMovies.overview}</p>
+            </div>
+            { /* Informations */ }
+            <div className="mobile_info animated fadeInRight delay-2s">
+              <h2 className="mobile_info_title">Informations</h2>
+              <div className="mobile_info_stats">
+                <div className="mobile_info_column">
+                  <h3 className="desktop_info_subtitle">Date de sortie :</h3>
+                  <h3 className="desktop_info_subtitle">Durée :</h3>
+                  <h3 className="desktop_info_subtitle">Budget :</h3>
+                  <h3 className="desktop_info_subtitle">Recette :</h3>
+                  <h3 className="desktop_info_subtitle">Genre :</h3>
+                </div>
+                <div className="desktop_info_column_left">
+                  <p className="desktop_info_text">{detailsMovies.release_date}</p>
+                  <p className="desktop_info_text">{detailsMovies.runtime} minutes</p>
+                  <p className="desktop_info_text">${detailsMovies.budget}</p>
+                  <p className="desktop_info_text">${detailsMovies.revenue}</p>
+                  <div className="tags">
+                    <p className="mobile_info_text"> </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Producteurs */}
+            <div className="mobile_casting_bar animated fadeInLeft delay-3s">
+              <h2 className="mobile_casting_title">Equipe technique</h2>
+              {
+                detailsCrews.filter((item) => item.name !== '' && item.profile_path !== null)
+                  .slice(0, 5)
+                  .map(({
+                    name, profile_path, job,
+                  }) => (
+                    <div className="mobile_casting">
+                      <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="mobile_casting_image" alt={name} />
+                      <h2 className="mobile_casting_actor">{name}</h2>
+                      <h3 className="mobile_casting_name">{job}</h3>
+                    </div>
+                  ))
+                }
+            </div>
+            { /* Acteurs */ }
+            <div className="mobile_casting_bar animated fadeInRight delay-4s">
+              <h2 className="mobile_info_title">Acteurs / Actrices</h2>
+              {
+                detailsCasts.filter((item) => item.name !== '' && item.profile_path !== null)
+                  .slice(0, 5)
+                  .map(({
+                    id, name, profile_path, character,
+                  }) => (
+                    <div key={id} className="mobile_casting">
+                      <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="mobile_casting_image" alt={name} />
+                      <h2 className="mobile_casting_actor">{name}</h2>
+                      <h3 className="mobile_casting_name">{character}</h3>
+                    </div>
+                  ))
+                }
+            </div>
+            { /* Trailer */ }
+            <div className="mobile_video animated fadeInLeft delay-5s">
+              <h2 className="mobile_casting_title" id="trailer">Bande-annonce</h2>
+              <div className="mobile_video_link">
+                {
+                  detailsVideos.slice(0, 1)
+                    .map(({ key, id }) => (
+                      <YouTube
+                        key={id}
+                        videoId={key}
+                        opts={optsMobile}
+                      />
+                    ))
+                }
+              </div>
+              <div className="ipad_video_link">
+                {
+                  detailsVideos.slice(0, 1)
+                    .map(({ key, id }) => (
+                      <YouTube
+                        key={id}
+                        videoId={key}
+                        opts={optsIpad}
+                      />
+                    ))
+                }
+              </div>
+            </div>
+          </main>
+        </section>
         <footer>
           <div className="footer">
             <p className="text_footer">Tu trouves pas ?? Va là dessus : <NavLink to="/search" className="link_footer">Rechercher</NavLink> &copy; - 2020</p>
@@ -156,7 +284,7 @@ export default class Details extends React.Component {
 }
 
 
-Details.propTypes = {
+Movies.propTypes = {
   getFetchMovie: PropTypes.func.isRequired,
   getFetchCrew: PropTypes.func.isRequired,
   getFetchCast: PropTypes.func.isRequired,
