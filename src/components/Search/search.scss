@@ -1,0 +1,75 @@
+// == Size Mobile
+@media screen and (min-width: 300px) {
+  .container_search {
+    margin-left: 16%;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .choice {
+    width: 100%;
+
+    &_list {
+    list-style: none;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em;
+    }
+
+    &_title {
+      text-align: center;
+      font-family: 'Dosis', sans-serif;
+      line-height: 2em;
+      font-size: 1.5em;
+      padding: 1.2em 0;
+      background: linear-gradient(to left, rgb(161, 121, 9), rgb(255, 203, 57));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      // text-transform: uppercase;
+      
+    }
+  }
+
+  .search {
+    margin-top: 15%;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    
+    &_title {
+      text-align: center;
+      font-family: 'Dosis', sans-serif;
+      line-height: 2em;
+      font-size: 1.5em;
+      padding-top: 1.2em;
+      background: linear-gradient(to left, rgb(161, 121, 9), rgb(255, 203, 57));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      // text-transform: uppercase;
+    }
+
+    &_input {
+      width: 100%;
+      line-height: 2em;
+      border-radius: 0.5em;
+      padding: 0.5em;
+      font-family: 'Open Sans', sans-serif;
+    }
+  }
+
+  .input[id=movie-radio]:checked ~ .search_movie, .movie, .test, .search_title, .search_input{
+    visibility: hidden;
+  }
+
+  .input[id=movie-radio]:not(:checked) ~ .search_movie, .movie, .test, .search_title, .search_input{
+    visibility: initial;
+  }
+}
+
+// == Size Tablet
+@media screen and (min-width: 768px) {
+  .container_search {
+    margin-left: 25%;
+  }
+}

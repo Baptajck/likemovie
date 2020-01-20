@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 import home from './home';
 import details from './details';
 import tv from './tv';
+import search from './search';
 
 // combineReducers nous retourne le reducer parent généré
 // on doit fournir en paramètre un objet
@@ -14,6 +15,7 @@ const reducer = combineReducers({
   home,
   details,
   tv,
+  search,
 });
 
 export default reducer;

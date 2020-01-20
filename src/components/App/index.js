@@ -11,6 +11,7 @@ import Sidebar from 'src/components/Sidebar';
 import Details from 'src/containers/details';
 import Error from 'src/components/Error';
 import TVShow from 'src/containers/tv';
+import Search from 'src/containers/search';
 
 // == Composant
 const App = () => (
@@ -24,6 +25,10 @@ const App = () => (
       <Route path="/tv/:id/:slug">
         <Sidebar />
         <TVShow />
+      </Route>
+      <Route exact path="/search">
+        <Sidebar />
+        <Search />
       </Route>
       <Route exact path="/likemovie">
         <Sidebar />

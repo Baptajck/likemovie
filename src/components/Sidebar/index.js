@@ -34,7 +34,7 @@ const Sidebar = () => (
               </li>
               <li className="sidebar_mobile_links_li" activeclassname="active">
                 <NavLink to="/search" className="sidebar_mobile_links_item">
-                  Recherche
+                  Rechercher
                 </NavLink>
               </li>
               <li className="sidebar_mobile_links_li" activeclassname="active">
@@ -72,7 +72,7 @@ const Sidebar = () => (
               </li>
               <li className="sidebar_classic_links_li">
                 <NavLink to="/search" className="sidebar_classic_links_item" activeclassname="active">
-                  Recherche
+                  Rechercher
                 </NavLink>
               </li>
               <li className="sidebar_classic_links_li">
