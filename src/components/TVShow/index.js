@@ -6,21 +6,28 @@ import { NavLink } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import { IoIosArrowRoundDown } from 'react-icons/io';
 
-// import Mobile from 'src/components/Details/mobile';
-
-// import './tv_desktop.scss';
-import './tv.scss';
+import 'src/components/Details/movie.scss';
 
 export default class TVShows extends React.Component {
   componentDidMount() {
     const {
-      fetchTv, fetchCast, fetchCrew, fetchVideo,
+      fetchTv, fetchCast, /* fetchCrew, */ fetchVideo,
     } = this.props;
     fetchTv(this.test());
-    fetchCrew(this.test());
+    // fetchCrew(this.test());
     fetchCast(this.test());
     fetchVideo(this.test());
   }
+
+   componentWillUnmount = () => {
+     const {
+       fetchTv, fetchCast, /* fetchCrew, */ fetchVideo,
+     } = this.props;
+     fetchTv(this.test());
+     // fetchCrew(this.test());
+     fetchCast(this.test());
+     fetchVideo(this.test());
+   };
 
   test = () => {
     const url = document.location.pathname;
@@ -31,7 +38,7 @@ export default class TVShows extends React.Component {
 
   render() {
     const {
-      tvShows, tvCrews, tvCasts, tvVideos,
+      tvShows, /* tvCrews */ tvCasts, tvVideos,
     } = this.props;
 
     const optsDesktop = {
@@ -65,6 +72,7 @@ export default class TVShows extends React.Component {
         {/* FORMAT DESKTOP */}
         <div className="desktop_details">
           <div className="desktop_details_background_effect">
+            <img className="desktop_details_background_effect_after" src={`https://image.tmdb.org/t/p/w1400_and_h450_face${tvShows.backdrop_path}`} alt="Image_de_fond" />
             <div className="desktop_details_custom_bg">
               <div className="desktop_details_presentation">
                 <section className="desktop_details_presentation_infos">
@@ -87,7 +95,7 @@ export default class TVShows extends React.Component {
                     <div className="desktop_info">
                       <div className="desktop_info_stats">
                         <div className="desktop_info_column">
-                          <h3 className="desktop_info_subtitle">Date de sortie :</h3>
+                          <h3 className="desktop_info_subtitle">Sortie le :</h3>
                           <h3 className="desktop_info_subtitle">Episodes :</h3>
                           <h3 className="desktop_info_subtitle">Saisons :</h3>
                           <h3 className="desktop_info_subtitle">Genre :</h3>
@@ -110,23 +118,26 @@ export default class TVShows extends React.Component {
             </div>
           </div>
           {/* Producteurs */}
-          <h2 className="desktop_casting_title">Equipe technique</h2>
-          <div className="desktop_casting_section">
-            {
-              tvCrews !== null && tvCrews.filter((c) => c.name !== '' && c.profile_path !== null)
-                .slice(0, 5)
-                .map(({
-                  name, profile_path, job,
-                }) => (
-                  <div className="desktop_casting">
-                    <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="desktop_casting_image" alt={`${name}`} />
-                    <h2 className="desktop_casting_actor"> {name}</h2>
-                    <h3 className="desktop_casting_name">{job}</h3>
-                  </div>
-                ))
-            }
-          </div>
-          <hr className="details_seperation" />
+          {/* tvCrews !== 'undefined' && (
+            <div>
+              <h2 className="desktop_casting_title">Equipe technique</h2>
+              <div className="desktop_casting_section">
+                {
+                  tvCrews.filter((c) => c.name !== '' && c.profile_path !== null)
+                    .slice(0, 5)
+                    .map(({
+                      name, profile_path, job,
+                    }) => (
+                      <div className="desktop_casting">
+                        <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="desktop_casting_image" alt={`${name}`} />
+                        <h2 className="desktop_casting_actor"> {name}</h2>
+                        <h3 className="desktop_casting_name">{job}</h3>
+                      </div>
+                    ))
+                }
+              </div>
+            </div>
+          ) */}
           {/* Acteurs */}
           <h2 className="desktop_casting_title">Acteurs / Actrices</h2>
           <div className="desktop_casting_section">
@@ -149,13 +160,17 @@ export default class TVShows extends React.Component {
             <h2 className="desktop_video_title">Bande-annonce</h2>
             <div className="desktop_video_link">
               {
-                tvVideos.slice(0, 1)
-                  .map(({ key, id }) => (
-                    <YouTube
-                      key={id}
-                      videoId={key}
-                      opts={optsDesktop}
-                    />
+                tvVideos.filter((item) => item.key !== '' && item.id !== null)
+                  .slice(0, 1)
+                  .map(({ key, id, iso_3166_1 }) => (
+                    <div>
+                      <YouTube
+                        key={id}
+                        videoId={key}
+                        opts={optsDesktop}
+                      />
+                      <p className="desktop_language">Langue : {iso_3166_1}</p>
+                    </div>
                   ))
               }
             </div>
@@ -165,7 +180,8 @@ export default class TVShows extends React.Component {
         <section className="mobile_layout_details">
           <header className="mobile_header">
             <div className="mobile_header_background">
-              <div className="mobile_header_cover"> </div>
+              <img className="mobile_header_fond" src={`https://image.tmdb.org/t/p/w500${tvShows.backdrop_path}`} alt="Image_de_fond" />
+              <img className="tablette_header_fond" src={`https://image.tmdb.org/t/p/w780${tvShows.backdrop_path}`} alt="Image_de_fond" />
             </div>
             <div className="mobile_header_image_wrapper">
               <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${tvShows.poster_path}`} className="mobile_header_image" alt="movie_poster" />
@@ -189,11 +205,11 @@ export default class TVShows extends React.Component {
               <p className="mobile_synopsis_text">{tvShows.overview}</p>
             </div>
             { /* Informations */ }
-            <div className="mobile_info animated fadeInRight delay-2s">
+            <div className="mobile_info animated fadeInRight delay-1s">
               <h2 className="mobile_info_title">Informations</h2>
               <div className="mobile_info_stats">
                 <div className="mobile_info_column">
-                  <h3 className="mobile_info_subtitle">Date de sortie :</h3>
+                  <h3 className="mobile_info_subtitle">Sortie le :</h3>
                   <h3 className="mobile_info_subtitle">Episodes :</h3>
                   <h3 className="mobile_info_subtitle">Saisons :</h3>
                   <h3 className="mobile_info_subtitle">Genre :</h3>
@@ -209,25 +225,27 @@ export default class TVShows extends React.Component {
               </div>
             </div>
             {/* Producteurs */}
-            <div className="mobile_casting_bar animated fadeInLeft delay-3s">
-              <h2 className="mobile_casting_title">Equipe technique</h2>
-              {
-                tvCrews !== null && tvCrews.filter((item) => item.name !== '' && item.profile_path !== null)
-                  .slice(0, 5)
-                  .map(({
-                    name, profile_path, job,
-                  }) => (
-                    <div className="mobile_casting">
-                      <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="mobile_casting_image" alt={name} />
-                      <h2 className="mobile_casting_actor">{name}</h2>
-                      <h3 className="mobile_casting_name">{job}</h3>
-                    </div>
-                  ))
-                }
-            </div>
+            {/* tvCrews !== 'undefined' && (
+              <div className="mobile_casting_bar animated fadeInLeft delay-3s">
+                <h2 className="mobile_casting_title">Equipe technique</h2>
+                {
+                  tvCrews !== null && tvCrews.filter((item) => item.name !== '' && item.profile_path !== null)
+                    .slice(0, 5)
+                    .map(({
+                      name, profile_path, job,
+                    }) => (
+                      <div className="mobile_casting">
+                        <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="mobile_casting_image" alt={name} />
+                        <h2 className="mobile_casting_actor">{name}</h2>
+                        <h3 className="mobile_casting_name">{job}</h3>
+                      </div>
+                    ))
+                  }
+              </div>
+            ) */}
             { /* Acteurs */ }
-            <div className="mobile_casting_bar animated fadeInRight delay-4s">
-              <h2 className="mobile_info_title">Acteurs / Actrices</h2>
+            <div className="mobile_casting_bar animated fadeInLeft delay-2s">
+              <h2 className="mobile_synopsis_title">Acteurs / Actrices</h2>
               {
                 tvCasts.filter((item) => item.name !== '' && item.profile_path !== null)
                   .slice(0, 5)
@@ -243,29 +261,35 @@ export default class TVShows extends React.Component {
                 }
             </div>
             { /* Trailer */ }
-            <div className="mobile_video animated fadeInLeft delay-5s">
-              <h2 className="mobile_casting_title" id="trailer">Bande-annonce</h2>
+            <div className="mobile_video_bar animated fadeInRight delay-3s">
+              <h2 className="mobile_info_title" id="trailer">Bande-annonce</h2>
               <div className="mobile_video_link">
                 {
                   tvVideos.slice(0, 1)
-                    .map(({ key, id }) => (
-                      <YouTube
-                        key={id}
-                        videoId={key}
-                        opts={optsMobile}
-                      />
+                    .map(({ key, id, iso_3166_1 }) => (
+                      <div>
+                        <YouTube
+                          key={id}
+                          videoId={key}
+                          opts={optsMobile}
+                        />
+                        <p className="desktop_language">Langue : {iso_3166_1}</p>
+                      </div>
                     ))
                 }
               </div>
               <div className="ipad_video_link">
                 {
                   tvVideos.slice(0, 1)
-                    .map(({ key, id }) => (
-                      <YouTube
-                        key={id}
-                        videoId={key}
-                        opts={optsIpad}
-                      />
+                    .map(({ key, id, iso_3166_1 }) => (
+                      <div>
+                        <YouTube
+                          key={id}
+                          videoId={key}
+                          opts={optsIpad}
+                        />
+                        <p className="desktop_language">Langue : {iso_3166_1}</p>
+                      </div>
                     ))
                 }
               </div>

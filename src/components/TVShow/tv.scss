@@ -16,6 +16,11 @@
     line-height: 1rem;
   }
 
+  .desktop_language {
+    color:#686868;
+    margin-top: 0.5rem;
+  }
+
   // Note du film
   .mobile_rating_background {
   border-color: #218da8;
@@ -46,7 +51,7 @@
   .mobile_header {
     // Photo de couverture
     &_background {
-      background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url('https://image.tmdb.org/t/p/w1400_and_h450_face/jOzrELAzFxtMx2I4uDGHOotdfsS.jpg');
+      // background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url('https://image.tmdb.org/t/p/w1400_and_h450_face/jOzrELAzFxtMx2I4uDGHOotdfsS.jpg');
       background-size: cover;
       background-position: center;
       background-blend-mode: darken;
@@ -358,7 +363,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: 50% 50%;
-      background-image: url('https://image.tmdb.org/t/p/w1400_and_h450_face/jOzrELAzFxtMx2I4uDGHOotdfsS.jpg');
+      // background-image: url('https://image.tmdb.org/t/p/w1400_and_h450_face/jOzrELAzFxtMx2I4uDGHOotdfsS.jpg');
       will-change: opacity;
       transition: filter 1s;
       }
@@ -366,7 +371,7 @@
 
     // Mettre la couleur par dessus l'image
     &_custom_bg {
-      background-image: radial-gradient(circle at 20% 50%, rgba(18.04%, 9.41%, 23.14%, 0.98) 0%, rgba(25.10%, 15.69%, 30.59%, 0.88) 100%);
+      // background-image: radial-gradient(circle at 20% 50%, rgba(18.04%, 9.41%, 23.14%, 0.98) 0%, rgba(25.10%, 15.69%, 30.59%, 0.88) 100%);
     }
 
     // Présentation des films
@@ -541,6 +546,8 @@
     }
   }
   
+
+
   .desktop_video {
     margin-top: 3rem;
     text-align: center;

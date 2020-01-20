@@ -1,3 +1,5 @@
+@import 'src/styles/index.scss';
+
 // == Size Mobile
 @media screen and (min-width: 300px) {
   // Toute la page
@@ -8,6 +10,10 @@
   }
 
   .desktop_details {
+    display: none;
+  }
+
+  .tablette_header_fond {
     display: none;
   }
 
@@ -45,8 +51,8 @@
 
   .mobile_header {
     // Photo de couverture
-    &_background {
-      background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url('https://image.tmdb.org/t/p/w1400_and_h450_face/jOzrELAzFxtMx2I4uDGHOotdfsS.jpg');
+    &_fond {
+      background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
       background-size: cover;
       background-position: center;
       background-blend-mode: darken;
@@ -104,12 +110,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-transform: uppercase;
-    }
-
-    // Container des notes utilisateurs et du trailer
-    &_cover {
-      padding-top: 8rem;
-      padding-bottom: 2rem;
     }
   }
 
@@ -275,17 +275,32 @@
 
   // Note du film
   .mobile_rating_background {
-    margin-left: 22.6rem;
+    margin-left: 21.6rem;
+  }
+
+  .mobile_header_fond{
+    display: none;
   }
   
+  .tablette_header_fond {
+    display: block;
+    background-image:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    width: 100%;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, 
+    color-stop(0.00,  rgba(0,0,0,1)),
+    color-stop(0.35,  rgba(0,0,0,1)),
+    color-stop(0.50,  rgba(0,0,0,1)),
+    color-stop(0.65,  rgba(0,0,0,1)),
+    color-stop(0.85,  rgba(0,0,0,0.6)),
+    color-stop(1.00,  rgba(0,0,0,0)));
+  }
+
   .mobile_header{
     &_cover {
     padding-top: 15rem;
-    }
-    
-    &_image {
-      width: 12rem;
-      margin-top: -2rem;
     }
 
     &_title {
@@ -345,7 +360,7 @@
       position: relative;
       z-index: 1;
       
-      &::before {
+      &_after {
       content: '';
       position: absolute;
       left: 0;
@@ -354,11 +369,9 @@
       height: 100%;
       z-index: -1;
       display: block;
-      //filter: opacity(0) grayscale(100%) contrast(130%);
       background-size: cover;
       background-repeat: no-repeat;
       background-position: 50% 50%;
-      background-image: url('https://image.tmdb.org/t/p/w1400_and_h450_face/jOzrELAzFxtMx2I4uDGHOotdfsS.jpg');
       will-change: opacity;
       transition: filter 1s;
       }
@@ -366,7 +379,7 @@
 
     // Mettre la couleur par dessus l'image
     &_custom_bg {
-      background-image: radial-gradient(circle at 20% 50%, rgba(18.04%, 9.41%, 23.14%, 0.98) 0%, rgba(25.10%, 15.69%, 30.59%, 0.88) 100%);
+      background-image: radial-gradient(circle at 50% 50%, rgba(19.61%, 7.84%, 7.84%, 0.9) 50%, rgba(27.45%, 13.73%, 13.73%, 0.88) 100%)
     }
 
     // Présentation des films

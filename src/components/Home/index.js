@@ -14,6 +14,13 @@ class Home extends React.Component {
     get_tvShow();
   }
 
+  componentWillUnmount() {
+    const { get_film, get_tvShow } = this.props;
+    get_film();
+    get_tvShow();
+  }
+
+
   render() {
     const { films, tvShows } = this.props;
     document.title = 'Likemovie';
@@ -29,16 +36,17 @@ class Home extends React.Component {
             <ul className="cover_movies">
               <ul className="cover_movies_list">
                 {
-                  films.map(({ id, title, poster_path }) => (
-                    <div key={id} id={`movie-${id}`} className="container_movie">
-                      <li className="cover_list">
-                        <NavLink to={`/movie/${id}/${getSlugByName(title)}`}>
-                          <img className="cover_img" alt="cover" title={title} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
-                          <h2 className="title_image">{title}</h2>
-                        </NavLink>
-                      </li>
-                    </div>
-                  ))
+                  films.filter((c) => c.title !== '' && c.poster_path !== null)
+                    .map(({ id, title, poster_path }) => (
+                      <div key={id} id={`movie-${id}`} className="container_movie">
+                        <li className="cover_list">
+                          <NavLink to={`/movie/${id}/${getSlugByName(title)}`}>
+                            <img className="cover_img" alt="cover" title={title} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
+                            <h2 className="title_image">{title}</h2>
+                          </NavLink>
+                        </li>
+                      </div>
+                    ))
                 }
               </ul>
             </ul>

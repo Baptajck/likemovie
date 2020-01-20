@@ -10,14 +10,14 @@ const initialState = {
 export const FETCH_TV = 'FETCH_TV';
 const SHOW_FETCH_TV = 'SHOW_FETCH_TV';
 
-export const FETCH_CREW = 'FETCH_CREW';
-const SHOW_FETCH_CREW = 'SHOW_FETCH_CREW';
+export const FETCH_CREW = 'FETCH_CREW_TV';
+const SHOW_FETCH_CREW_TV = 'SHOW_FETCH_CREW_TV';
 
-export const FETCH_CAST = 'FETCH_CAST';
-const SHOW_FETCH_CAST = 'SHOW_FETCH_CAST';
+export const FETCH_CAST = 'FETCH_CAST_TV';
+const SHOW_FETCH_CAST_TV = 'SHOW_FETCH_CAST_TV';
 
-export const FETCH_VIDEO = 'FETCH_VIDEO';
-const SHOW_FETCH_VIDEO = 'SHOW_FETCH_VIDEO';
+export const FETCH_VIDEO = 'FETCH_VIDEO_TV';
+const SHOW_FETCH_VIDEO_TV = 'SHOW_FETCH_VIDEO_TV';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -28,19 +28,19 @@ const reducer = (state = initialState, action = {}) => {
         tvShows: action.tvShows,
       };
 
-    case SHOW_FETCH_CREW:
+    case SHOW_FETCH_CREW_TV:
       return {
         ...state,
         tvCrews: action.tvCrews,
       };
 
-    case SHOW_FETCH_CAST:
+    case SHOW_FETCH_CAST_TV:
       return {
         ...state,
         tvCasts: action.tvCasts,
       };
 
-    case SHOW_FETCH_VIDEO:
+    case SHOW_FETCH_VIDEO_TV:
       return {
         ...state,
         tvVideos: action.tvVideos,
@@ -52,7 +52,7 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // == Action Creators
-export const showFetchTv = (tvShows) => ({
+export const showFetchTV = (tvShows) => ({
   type: SHOW_FETCH_TV,
   tvShows,
 });
@@ -62,8 +62,8 @@ export const fetchTv = (id) => ({
   id,
 });
 
-export const showFetchCrew = (tvCrews) => ({
-  type: SHOW_FETCH_CREW,
+export const showFetchCrewTV = (tvCrews) => ({
+  type: SHOW_FETCH_CREW_TV,
   tvCrews,
 });
 
@@ -72,8 +72,8 @@ export const fetchCrew = (id) => ({
   id,
 });
 
-export const showFetchCast = (tvCasts) => ({
-  type: SHOW_FETCH_CAST,
+export const showFetchCastTV = (tvCasts) => ({
+  type: SHOW_FETCH_CAST_TV,
   tvCasts,
 });
 
@@ -82,8 +82,8 @@ export const fetchCast = (id) => ({
   id,
 });
 
-export const showFetchVideo = (tvVideos) => ({
-  type: SHOW_FETCH_VIDEO,
+export const showFetchVideoTV = (tvVideos) => ({
+  type: SHOW_FETCH_VIDEO_TV,
   tvVideos,
 });
 

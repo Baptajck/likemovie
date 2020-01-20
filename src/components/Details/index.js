@@ -20,6 +20,16 @@ export default class Movies extends React.Component {
     getFetchVideo(this.test());
   }
 
+  componentWillUnmount() {
+    const {
+      getFetchMovie, getFetchCrew, getFetchCast, getFetchVideo,
+    } = this.props;
+    getFetchCrew(this.test());
+    getFetchMovie(this.test());
+    getFetchCast(this.test());
+    getFetchVideo(this.test());
+  }
+
   test = () => {
     const url = document.location.pathname;
     const a = url.split('/');
@@ -60,8 +70,10 @@ export default class Movies extends React.Component {
 
     return (
       <div>
+        {/* FORMAT DESKTOP */}
         <div className="desktop_details">
           <div className="desktop_details_background_effect">
+            <img className="desktop_details_background_effect_after" src={`https://image.tmdb.org/t/p/w1400_and_h450_face${detailsMovies.backdrop_path}`} alt="Image_de_fond" />
             <div className="desktop_details_custom_bg">
               <div className="desktop_details_presentation">
                 <section className="desktop_details_presentation_infos">
@@ -84,7 +96,7 @@ export default class Movies extends React.Component {
                     <div className="desktop_info">
                       <div className="desktop_info_stats">
                         <div className="desktop_info_column">
-                          <h3 className="desktop_info_subtitle">Date de sortie :</h3>
+                          <h3 className="desktop_info_subtitle">Sortie le :</h3>
                           <h3 className="desktop_info_subtitle">Durée :</h3>
                           <h3 className="desktop_info_subtitle">Budget :</h3>
                           <h3 className="desktop_info_subtitle">Recette :</h3>
@@ -94,7 +106,8 @@ export default class Movies extends React.Component {
                           <p className="desktop_info_text">{detailsMovies.release_date}</p>
                           <p className="desktop_info_text">{detailsMovies.runtime} minutes</p>
                           <p className="desktop_info_text">${detailsMovies.budget}</p>
-                          <p className="desktop_info_text">${detailsMovies.revenue}</p>
+                          <p className="desktop_info_text">${detailsMovies.revenue}
+                          </p>
                           <div className="tags">
                             {/* {props.genres.map((a) => (
                               <p className="desktop_info_text">{a.name}</p>
@@ -149,12 +162,15 @@ export default class Movies extends React.Component {
             <div className="desktop_video_link">
               {
                 detailsVideos.slice(0, 1)
-                  .map(({ key, id }) => (
-                    <YouTube
-                      key={id}
-                      videoId={key}
-                      opts={optsDesktop}
-                    />
+                  .map(({ key, id, iso_3166_1 }) => (
+                    <div>
+                      <YouTube
+                        key={id}
+                        videoId={key}
+                        opts={optsDesktop}
+                      />
+                      <p className="desktop_language">Langue : {iso_3166_1}</p>
+                    </div>
                   ))
               }
             </div>
@@ -164,7 +180,8 @@ export default class Movies extends React.Component {
         <section className="mobile_layout_details">
           <header className="mobile_header">
             <div className="mobile_header_background">
-              <div className="mobile_header_cover"> </div>
+              <img className="mobile_header_fond" src={`https://image.tmdb.org/t/p/w500${detailsMovies.backdrop_path}`} alt="Image_de_fond" />
+              <img className="tablette_header_fond" src={`https://image.tmdb.org/t/p/w780${detailsMovies.backdrop_path}`} alt="Image_de_fond" />
             </div>
             <div className="mobile_header_image_wrapper">
               <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${detailsMovies.poster_path}`} className="mobile_header_image" alt="movie_poster" />
@@ -192,7 +209,7 @@ export default class Movies extends React.Component {
               <h2 className="mobile_info_title">Informations</h2>
               <div className="mobile_info_stats">
                 <div className="mobile_info_column">
-                  <h3 className="desktop_info_subtitle">Date de sortie :</h3>
+                  <h3 className="desktop_info_subtitle">Sortie le :</h3>
                   <h3 className="desktop_info_subtitle">Durée :</h3>
                   <h3 className="desktop_info_subtitle">Budget :</h3>
                   <h3 className="desktop_info_subtitle">Recette :</h3>
@@ -249,24 +266,30 @@ export default class Movies extends React.Component {
               <div className="mobile_video_link">
                 {
                   detailsVideos.slice(0, 1)
-                    .map(({ key, id }) => (
-                      <YouTube
-                        key={id}
-                        videoId={key}
-                        opts={optsMobile}
-                      />
+                    .map(({ key, id, iso_3166_1 }) => (
+                      <div>
+                        <YouTube
+                          key={id}
+                          videoId={key}
+                          opts={optsMobile}
+                        />
+                        <p className="desktop_language">Langue : {iso_3166_1}</p>
+                      </div>
                     ))
                 }
               </div>
               <div className="ipad_video_link">
                 {
                   detailsVideos.slice(0, 1)
-                    .map(({ key, id }) => (
-                      <YouTube
-                        key={id}
-                        videoId={key}
-                        opts={optsIpad}
-                      />
+                    .map(({ key, id, iso_3166_1 }) => (
+                      <div>
+                        <YouTube
+                          key={id}
+                          videoId={key}
+                          opts={optsIpad}
+                        />
+                        <p className="desktop_language">Langue : {iso_3166_1}</p>
+                      </div>
                     ))
                 }
               </div>
