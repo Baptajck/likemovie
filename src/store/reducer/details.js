@@ -1,6 +1,7 @@
 // == Initial State
 const initialState = {
   detailsMovies: [],
+  detailsGenres: [],
   detailsCrews: [],
   detailsCasts: [],
   detailsVideos: [],
@@ -9,6 +10,9 @@ const initialState = {
 // == Types
 export const GET_FETCH_MOVIE = 'GET_FETCH_MOVIE';
 const SHOW_FETCH_MOVIE = 'SHOW_FETCH_MOVIE';
+
+export const FETCH_GENRES_MOVIE = 'FETCH_GENRES_MOVIE';
+const SHOW_FETCH_GENRES_MOVIE = 'SHOW_FETCH_GENRES_MOVIE';
 
 export const GET_FETCH_CREW = 'GET_FETCH_CREW';
 const SHOW_FETCH_CREW = 'SHOW_FETCH_CREW';
@@ -26,6 +30,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         detailsMovies: action.detailsMovies,
+      };
+
+    case SHOW_FETCH_GENRES_MOVIE:
+      return {
+        ...state,
+        detailsGenres: action.detailsGenres,
       };
 
     case SHOW_FETCH_CREW:
@@ -59,6 +69,16 @@ export const showFetchMovie = (detailsMovies) => ({
 
 export const getFetchMovie = (id) => ({
   type: GET_FETCH_MOVIE,
+  id,
+});
+
+export const showFetchGenresMovie = (detailsGenres) => ({
+  type: SHOW_FETCH_GENRES_MOVIE,
+  detailsGenres,
+});
+
+export const fetchGenresMovie = (id) => ({
+  type: FETCH_GENRES_MOVIE,
   id,
 });
 

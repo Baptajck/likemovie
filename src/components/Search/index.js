@@ -31,10 +31,12 @@ class Search extends React.Component {
         .trim()}...`
       : string);
 
+
     render() {
       // console.log('je suis le state', this.state);
-      console.log('Je suis les props', this.props.changeValues);
-      const { changeValues, searchMovies, searchTVs } = this.props;
+      // console.log('Je suis les props', this.props.changeValues);
+      const { searchMovies, searchTVs } = this.props;
+      document.title = 'Rechercher | Likemovie';
       return (
         <div className="container_search">
           <div className="choice">
@@ -58,25 +60,29 @@ class Search extends React.Component {
               <ul className="section_card">
                 {/* CARD MOVIES */}
                 {
-                  searchMovies.map(({ id, title, poster_path }) => (
-                    <li key={id} className="card">
-                      <NavLink to={`/movie/${id}/${getSlugByName(title)}`}>
-                        <img className="card_image" src={`http://image.tmdb.org/t/p/w185${poster_path}`} alt="" />
-                        <h1 className="card_title">{this.truncStr(title, 20)}</h1>
-                      </NavLink>
-                    </li>
-                  ))
+                  searchMovies.filter((item) => item.title !== '' && item.poster_path !== null)
+                    .slice(0, 20)
+                    .map(({ id, title, poster_path }) => (
+                      <li key={id} className="card">
+                        <NavLink to={`/movie/${id}/${getSlugByName(title)}`}>
+                          <img className="card_image" src={`http://image.tmdb.org/t/p/w185${poster_path}`} alt="" />
+                          <h1 className="card_title">{this.truncStr(title, 20)}</h1>
+                        </NavLink>
+                      </li>
+                    ))
                 }
                 {/* CARD TV */}
                 {
-                searchTVs.map(({ id, name, poster_path }) => (
-                  <li key={id} className="card">
-                    <NavLink to={`/tv/${id}/${getSlugByName(name)}`}>
-                      <img className="card_image" src={`http://image.tmdb.org/t/p/w185${poster_path}`} alt="" />
-                      <h1 className="card_title">{this.truncStr(name, 20)}</h1>
-                    </NavLink>
-                  </li>
-                ))
+                searchTVs.filter((item) => item.name !== '' && item.poster_path !== null)
+                  .slice(0, 20)
+                  .map(({ id, name, poster_path }) => (
+                    <li key={id} className="card">
+                      <NavLink to={`/tv/${id}/${getSlugByName(name)}`}>
+                        <img className="card_image" src={`http://image.tmdb.org/t/p/w185${poster_path}`} alt="" />
+                        <h1 className="card_title">{this.truncStr(name, 20)}</h1>
+                      </NavLink>
+                    </li>
+                  ))
                 }
               </ul>
             </div>

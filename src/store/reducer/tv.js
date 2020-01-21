@@ -1,6 +1,7 @@
 // == Initial State
 const initialState = {
   tvShows: [],
+  tvGenres: [],
   tvCrews: [],
   tvCasts: [],
   tvVideos: [],
@@ -9,6 +10,9 @@ const initialState = {
 // == Types
 export const FETCH_TV = 'FETCH_TV';
 const SHOW_FETCH_TV = 'SHOW_FETCH_TV';
+
+export const FETCH_GENRES_TV = 'FETCH_GENRES_TV';
+const SHOW_FETCH_GENRES_TV = 'SHOW_FETCH_GENRES_TV';
 
 export const FETCH_CREW = 'FETCH_CREW_TV';
 const SHOW_FETCH_CREW_TV = 'SHOW_FETCH_CREW_TV';
@@ -26,6 +30,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         tvShows: action.tvShows,
+      };
+
+    case SHOW_FETCH_GENRES_TV:
+      return {
+        ...state,
+        tvGenres: action.tvGenres,
       };
 
     case SHOW_FETCH_CREW_TV:
@@ -59,6 +69,16 @@ export const showFetchTV = (tvShows) => ({
 
 export const fetchTv = (id) => ({
   type: FETCH_TV,
+  id,
+});
+
+export const showFetchGenresTV = (tvGenres) => ({
+  type: SHOW_FETCH_GENRES_TV,
+  tvGenres,
+});
+
+export const fetchGenresTv = (id) => ({
+  type: FETCH_GENRES_TV,
   id,
 });
 

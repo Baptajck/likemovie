@@ -12,23 +12,24 @@ import './movie.scss';
 export default class Movies extends React.Component {
   componentDidMount() {
     const {
-      getFetchMovie, getFetchCrew, getFetchCast, getFetchVideo,
+      getFetchMovie, getFetchCrew, getFetchCast, getFetchVideo, getFetchGenresMovie,
     } = this.props;
     getFetchCrew(this.test());
+    getFetchGenresMovie(this.test());
     getFetchMovie(this.test());
     getFetchCast(this.test());
     getFetchVideo(this.test());
   }
 
-  componentWillUnmount() {
-    const {
-      getFetchMovie, getFetchCrew, getFetchCast, getFetchVideo,
-    } = this.props;
-    getFetchCrew(this.test());
-    getFetchMovie(this.test());
-    getFetchCast(this.test());
-    getFetchVideo(this.test());
-  }
+  // componentWillUnmount() {
+  //   const {
+  //     getFetchMovie, getFetchCrew, getFetchCast, getFetchVideo,
+  //   } = this.props;
+  //   getFetchCrew(this.test());
+  //   getFetchMovie(this.test());
+  //   getFetchCast(this.test());
+  //   getFetchVideo(this.test());
+  // }
 
   test = () => {
     const url = document.location.pathname;
@@ -39,7 +40,7 @@ export default class Movies extends React.Component {
 
   render() {
     const {
-      detailsMovies, detailsCrews, detailsCasts, detailsVideos,
+      detailsMovies, detailsCrews, detailsCasts, detailsVideos, detailsGenres,
     } = this.props;
 
     const optsDesktop = {
@@ -109,9 +110,11 @@ export default class Movies extends React.Component {
                           <p className="desktop_info_text">${detailsMovies.revenue}
                           </p>
                           <div className="tags">
-                            {/* {props.genres.map((a) => (
-                              <p className="desktop_info_text">{a.name}</p>
-                            ))} */}
+                            {
+                              detailsGenres.map(({ name, id }) => (
+                                <p key={id} className="desktop_info_text">{name}</p>
+                              ))
+                            }
                           </div>
                         </div>
                       </div>
@@ -221,7 +224,11 @@ export default class Movies extends React.Component {
                   <p className="desktop_info_text">${detailsMovies.budget}</p>
                   <p className="desktop_info_text">${detailsMovies.revenue}</p>
                   <div className="tags">
-                    <p className="mobile_info_text"> </p>
+                    {
+                      detailsGenres.map(({ name, id }) => (
+                        <p key={id} className="mobile_info_text">{name}</p>
+                      ))
+                    }
                   </div>
                 </div>
               </div>
@@ -312,6 +319,7 @@ Movies.propTypes = {
   getFetchCrew: PropTypes.func.isRequired,
   getFetchCast: PropTypes.func.isRequired,
   getFetchVideo: PropTypes.func.isRequired,
+  getFetchGenresMovie: PropTypes.func.isRequired,
 
 
   // genres: PropTypes.arrayOf(
@@ -338,6 +346,12 @@ Movies.propTypes = {
       name: PropTypes.string,
       job: PropTypes.string,
       profile_path: PropTypes.string,
+    }),
+  ).isRequired,
+  detailsGenres: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      id: PropTypes.number,
     }),
   ).isRequired,
   detailsCasts: PropTypes.arrayOf(

@@ -8,6 +8,7 @@ import TVShow from 'src/components/TVShow';
 // Action Creators
 import {
   fetchTv,
+  fetchGenresTv,
   fetchCrew,
   fetchCast,
   fetchVideo,
@@ -20,6 +21,7 @@ const mapStateToProps = (state) => {
   // console.log('Je suis container', state);
   return {
     tvShows: state.tv.tvShows,
+    tvGenres: state.tv.tvGenres,
     tvCrews: state.tv.tvCrews,
     tvCasts: state.tv.tvCasts,
     tvVideos: state.tv.tvVideos,
@@ -31,6 +33,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchTv: (id) => {
     dispatch(fetchTv(id));
+  },
+  fetchGenresTv: (id) => {
+    dispatch(fetchGenresTv(id));
   },
   fetchCrew: (id) => {
     dispatch(fetchCrew(id));

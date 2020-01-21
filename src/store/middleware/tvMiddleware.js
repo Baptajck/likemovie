@@ -2,6 +2,8 @@ import axios from 'axios';
 import {
   FETCH_TV,
   showFetchTV,
+  FETCH_GENRES_TV,
+  showFetchGenresTV,
   FETCH_CREW,
   showFetchCrewTV,
   FETCH_CAST,
@@ -10,8 +12,10 @@ import {
   showFetchVideoTV,
 } from 'src/store/reducer/tv';
 
+const keyApi = 'd21d6f9a11307550b8fe09b60f3ee8ef';
+
 function fetchTV(store, id) {
-  axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=d21d6f9a11307550b8fe09b60f3ee8ef&language=fr-FR`)
+  axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${keyApi}&language=fr-FR`)
     .then((response) => {
       // console.log('Je suis le middleware', response);
       const save = showFetchTV(response.data);
@@ -22,8 +26,20 @@ function fetchTV(store, id) {
     });
 }
 
+function fetchGenresTV(store, id) {
+  axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${keyApi}&language=fr-FR`)
+    .then((response) => {
+      console.log('Je suis le middleware', response.data.genres);
+      const save = showFetchGenresTV(response.data.genres);
+      store.dispatch(save);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
 function fetchCrew(store, id) {
-  axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=d21d6f9a11307550b8fe09b60f3ee8ef&language=fr-FR`)
+  axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=${keyApi}&language=fr-FR`)
     .then((response) => {
       // console.log('Je suis middleware', response);
       const save = showFetchCrewTV(response.data.crew);
@@ -35,7 +51,7 @@ function fetchCrew(store, id) {
 }
 
 function fetchCast(store, id) {
-  axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=d21d6f9a11307550b8fe09b60f3ee8ef&language=fr-FR`)
+  axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=${keyApi}&language=fr-FR`)
     .then((response) => {
       // console.log('Je suis middleware', response);
       const save = showFetchCastTV(response.data.cast);
@@ -47,7 +63,7 @@ function fetchCast(store, id) {
 }
 
 function fetchVideo(store, id) {
-  axios.get(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=d21d6f9a11307550b8fe09b60f3ee8ef`)
+  axios.get(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${keyApi}`)
     .then((response) => {
       // console.log('Je suis middleware', response);
       const save = showFetchVideoTV(response.data.results);
@@ -63,6 +79,10 @@ const tvMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_TV: {
       fetchTV(store, action.id);
+      break;
+    }
+    case FETCH_GENRES_TV: {
+      fetchGenresTV(store, action.id);
       break;
     }
     case FETCH_CREW: {

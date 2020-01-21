@@ -11,23 +11,24 @@ import 'src/components/Details/movie.scss';
 export default class TVShows extends React.Component {
   componentDidMount() {
     const {
-      fetchTv, fetchCast, /* fetchCrew, */ fetchVideo,
+      fetchTv, fetchCast, /* fetchCrew, */ fetchVideo, fetchGenresTv,
     } = this.props;
     fetchTv(this.test());
+    fetchGenresTv(this.test());
     // fetchCrew(this.test());
     fetchCast(this.test());
     fetchVideo(this.test());
   }
 
-   componentWillUnmount = () => {
-     const {
-       fetchTv, fetchCast, /* fetchCrew, */ fetchVideo,
-     } = this.props;
-     fetchTv(this.test());
-     // fetchCrew(this.test());
-     fetchCast(this.test());
-     fetchVideo(this.test());
-   };
+  //  componentWillUnmount = () => {
+  //    const {
+  //      fetchTv, fetchCast, /* fetchCrew, */ fetchVideo,
+  //    } = this.props;
+  //    fetchTv(this.test());
+  //    // fetchCrew(this.test());
+  //    fetchCast(this.test());
+  //    fetchVideo(this.test());
+  //  };
 
   test = () => {
     const url = document.location.pathname;
@@ -38,7 +39,7 @@ export default class TVShows extends React.Component {
 
   render() {
     const {
-      tvShows, /* tvCrews */ tvCasts, tvVideos,
+      tvShows, /* tvCrews */ tvCasts, tvVideos, tvGenres,
     } = this.props;
 
     const optsDesktop = {
@@ -105,9 +106,11 @@ export default class TVShows extends React.Component {
                           <p className="desktop_info_text">{tvShows.number_of_episodes}</p>
                           <p className="desktop_info_text">{tvShows.number_of_seasons}</p>
                           <div className="tags">
-                            {/* {props.genres.map((a) => (
-                              <p className="desktop_info_text">{a.name}</p>
-                            ))} */}
+                            {
+                              tvGenres.map(({ name, id }) => (
+                                <p key={id} className="desktop_info_text">{name}</p>
+                              ))
+                            }
                           </div>
                         </div>
                       </div>
@@ -219,7 +222,11 @@ export default class TVShows extends React.Component {
                   <p className="mobile_info_text">{tvShows.number_of_episodes}</p>
                   <p className="mobile_info_text">{tvShows.number_of_seasons}</p>
                   <div className="tags">
-                    <p className="mobile_info_text"> </p>
+                    {
+                      tvGenres.map(({ name, id }) => (
+                        <p key={id} className="mobile_info_text">{name}</p>
+                      ))
+                    }
                   </div>
                 </div>
               </div>

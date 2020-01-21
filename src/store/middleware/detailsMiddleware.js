@@ -2,6 +2,8 @@ import axios from 'axios';
 import {
   GET_FETCH_MOVIE,
   showFetchMovie,
+  FETCH_GENRES_MOVIE,
+  showFetchGenresMovie,
   GET_FETCH_CREW,
   showFetchCrew,
   GET_FETCH_CAST,
@@ -10,10 +12,24 @@ import {
   showFetchVideo,
 } from 'src/store/reducer/details';
 
+const keyApi = 'd21d6f9a11307550b8fe09b60f3ee8ef';
+
 function getFetchMovie(store, id) {
   axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=d21d6f9a11307550b8fe09b60f3ee8ef&language=fr-FR`)
     .then((response) => {
       const save = showFetchMovie(response.data);
+      store.dispatch(save);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
+function fetchGenresMovie(store, id) {
+  axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${keyApi}&language=fr-FR`)
+    .then((response) => {
+      console.log('Je suis le middleware', response.data.genres);
+      const save = showFetchGenresMovie(response.data.genres);
       store.dispatch(save);
     })
     .catch((error) => {
@@ -62,6 +78,10 @@ const detailsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_FETCH_CREW: {
       getFetchCrew(store, action.id);
+      break;
+    }
+    case FETCH_GENRES_MOVIE: {
+      fetchGenresMovie(store, action.id);
       break;
     }
     case GET_FETCH_MOVIE: {

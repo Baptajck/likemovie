@@ -8,6 +8,7 @@ import Details from 'src/components/Details';
 // Action Creators
 import {
   getFetchMovie,
+  fetchGenresMovie,
   getFetchCrew,
   getFetchCast,
   getFetchVideo,
@@ -20,6 +21,7 @@ const mapStateToProps = (state) => {
   // console.log('Je suis container', ownProps);
   return {
     detailsMovies: state.details.detailsMovies,
+    detailsGenres: state.details.detailsGenres,
     detailsCrews: state.details.detailsCrews,
     detailsCasts: state.details.detailsCasts,
     detailsVideos: state.details.detailsVideos,
@@ -31,6 +33,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   getFetchCrew: (id) => {
     dispatch(getFetchCrew(id));
+  },
+  getFetchGenresMovie: (id) => {
+    dispatch(fetchGenresMovie(id));
   },
   getFetchMovie: (id) => {
     dispatch(getFetchMovie(id));
