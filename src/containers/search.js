@@ -15,7 +15,7 @@ import {
 /* === State (données) === */
 
 const mapStateToProps = (state) => {
-  console.log('Je suis container', state);
+  // console.log('Je suis container', state);
   return {
     searchMovies: state.search.searchMovies,
     searchTVs: state.search.searchTVs,

@@ -11,7 +11,7 @@ const keyApi = 'd21d6f9a11307550b8fe09b60f3ee8ef';
 function fetchSearchMovie(store, val) {
   axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${keyApi}&language=fr-FR&query=${val}&page=1&include_adult=false`)
     .then((response) => {
-      console.log('Je suis le middleware movie', response);
+      // console.log('Je suis le middleware movie', response);
       const save = showFetchSearchMovie(response.data.results);
       store.dispatch(save);
     })
@@ -23,7 +23,7 @@ function fetchSearchMovie(store, val) {
 function fetchSearchTV(store, val) {
   axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${keyApi}&language=fr-FR&query=${val}&page=1`)
     .then((response) => {
-      console.log('Je suis middleware show', response);
+      // console.log('Je suis middleware show', response);
       const save = showFetchSearchTV(response.data.results);
       store.dispatch(save);
     })

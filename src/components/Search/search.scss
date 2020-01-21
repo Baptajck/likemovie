@@ -32,10 +32,7 @@
   }
 
   .search {
-    margin-top: 15%;
-    width: 80%;
-    margin-right: auto;
-    margin-left: auto;
+
     
     &_title {
       text-align: center;
@@ -50,11 +47,14 @@
     }
 
     &_input {
-      width: 100%;
+      display: block;
+      width: 80%;
       line-height: 2em;
       border-radius: 0.5em;
       padding: 0.5em;
       font-family: 'Open Sans', sans-serif;
+      margin-right: auto;
+      margin-left: auto;
     }
   }
 
@@ -64,6 +64,47 @@
 
   .input[id=movie-radio]:not(:checked) ~ .search_movie, .movie, .test, .search_title, .search_input{
     visibility: initial;
+  }
+
+  .section_card {
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+    justify-content: space-evenly;
+    padding: 1rem 0;
+  }
+
+  .card {
+
+    &_image {
+      width: 8rem;
+      border-radius: 5%;
+      -o-box-shadow: 0px 0px 15px 0px rgba(122,121,121,0.5);
+      box-shadow: 0px 0px 15px 0px
+      rgba(122,121,121,0.5);
+      min-height: 192.35px;
+      min-width: 128px;
+      margin-bottom: 0.5rem;
+    }
+
+    &_title {
+      font-size: 1.05em;
+      text-align: center;
+      color: #fff;
+      max-width: 128px;
+      line-height: 1.1rem;
+      min-height: 45px;
+      max-height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
   }
 }
 
