@@ -61,16 +61,17 @@ class Home extends React.Component {
             <div className="cover_shows">
               <ul className="cover_shows_list">
                 {
-                  tvShows.map(({ id, name, poster_path }) => (
-                    <div key={id} className="container_movie">
-                      <NavLink to={`/tv/${id}/${getSlugByName(name)}`}>
-                        <li className="cover_list">
-                          <img className="cover_img" alt="cover" title={name} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
-                          <h2 className="title_image">{name}</h2>
-                        </li>
-                      </NavLink>
-                    </div>
-                  ))
+                  tvShows.filter((c) => c.name !== '' && c.poster_path !== null)
+                    .map(({ id, name, poster_path }) => (
+                      <div key={id} className="container_movie">
+                        <NavLink to={`/tv/${id}/${getSlugByName(name)}`}>
+                          <li className="cover_list">
+                            <img className="cover_img" alt="cover" title={name} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
+                            <h2 className="title_image">{name}</h2>
+                          </li>
+                        </NavLink>
+                      </div>
+                    ))
                 }
               </ul>
             </div>

@@ -12,6 +12,8 @@ import Details from 'src/containers/details';
 import Error from 'src/components/Error';
 import TVShow from 'src/containers/tv';
 import Search from 'src/containers/search';
+import Contact from 'src/components/Contact';
+import Team from 'src/components/Team';
 
 // == Composant
 const App = () => (
@@ -29,6 +31,14 @@ const App = () => (
       <Route exact path="/search">
         <Sidebar />
         <Search />
+      </Route>
+      <Route exact path="/team">
+        <Sidebar />
+        <Team />
+      </Route>
+      <Route exact path="/contact">
+        <Sidebar />
+        <Contact />
       </Route>
       <Route exact path="/likemovie">
         <Sidebar />

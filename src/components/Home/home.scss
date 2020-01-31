@@ -260,3 +260,14 @@
     margin-top: 3rem;
   }
 }
+
+@media screen and (min-width: 1950px) {
+  .cover {
+    &_movies {
+      max-width: calc((100% - 25%) - 15rem);
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

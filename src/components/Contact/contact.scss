@@ -1,0 +1,196 @@
+// == Size Mobile
+@media screen and (min-width: 300px) {
+  *, *:before, *:after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .contact {
+  
+    // fond du formulaire
+    &_background {
+    margin-left: 16%;
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(to right,rgb(161, 121, 9), rgb(255, 203, 57) 100%);
+    }
+
+    // contenant du formulaire
+    &_container {
+      margin: auto 2em;
+      padding: 2em;
+      background-color: #161616;
+      border-radius: 1.5em;
+    }
+
+    // Titre du formulaire
+    &_title {
+      background: linear-gradient(to left, rgb(161, 121, 9), rgb(255, 203, 57));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      font-size: 2em;
+      font-family: 'Dosis', sans-serif;
+      font-weight: 700;
+
+      // Ligne de décoration sous le titre du formulaire
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 25px;
+        height: 4px;
+        background: linear-gradient(to left, rgb(161, 121, 9), rgb(255, 203, 57));
+      }
+    }
+
+    // Information de contact
+    &_info {
+      margin: 2em 0;
+      font-size: 0.8em;
+      color: #888;
+    }
+
+    // Formulaire de contact
+    &_form {
+    
+      // Champs du formulaire
+      &_control {
+        width: 100%;
+        padding: 10px 0;
+        background: none;
+        border: none;
+        border-bottom: 1px solid #666;
+        color: #fff;
+        font-size: 0.65em;
+        text-transform: uppercase;
+        outline: none;
+        transition: border-color .2s;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+      }
+
+      // Boutons de validation du formulaire
+      &_button {
+        background: none;
+        border: none;
+        font-size: 0.8em;
+        cursor: pointer;
+        outline: none;
+        text-transform: uppercase;
+        font-family: 'Open Sans', sans-serif;
+        background: linear-gradient(to right, rgb(177, 37, 67), rgb(221, 115, 15));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Zone de saisie du message
+  .textinput {
+    width: 100%;
+    min-height: 10em;
+    max-height: 25em;
+    color: #fff;
+    font-size: 0.75em;
+    outline: none;
+    font-weight: 500;
+    letter-spacing: 1.4px;
+    text-transform: lowercase;
+    font-family: 'Open Sans', sans-serif;
+    resize: none;
+  }
+
+  // Zone des bouttons de Annuler et Envoyer
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .contact {
+
+    // fond du formulaire
+    &_background {
+      margin-left: 25%;      
+    }
+
+    // Contenant du formulaire
+    &_container {
+      margin: auto;
+      min-height: 70vh;
+      min-width: 45%;
+    }
+
+    &_title {
+      &::after {
+        bottom: -20px;
+        width: 35px;
+        height: 6px;
+      }
+    }
+
+    // Information de contact
+    &_info {
+      font-size: 1em;
+      margin: 3em 0;
+    }
+  }
+
+  // Zone de saisie du message
+  .textinput {
+    min-height: 25em;
+  }
+
+  // Zone des bouttons de Annuler et Envoyer
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 2em 0;
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .contact {
+
+    // Information de contact
+    &_info {
+      font-size: 1.2em;
+    }
+
+    // Titre du formulaire
+    &_title {
+      font-size: 3em;
+    }
+
+    // Champs du formulaire
+    &_form {
+      width: 100%;
+
+      &_control {
+        font-size: 0.85em;
+      }
+
+      // Boutons de validation du formulaire
+      &_button {
+        font-size: 1em;
+      }
+    }
+  }
+
+  // Zone de saisie du message
+  .textinput {
+    min-height: 25em;
+    font-size: 0.95em;
+  }
+}
