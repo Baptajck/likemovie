@@ -20,6 +20,13 @@ class Home extends React.Component {
     get_tvShow();
   }
 
+  truncStr = (string, limit) => (string.length > limit
+    ? `${string
+      .trim()
+      .substring(0, limit - 3)
+      .trim()}...`
+    : string);
+
 
   render() {
     const { films, tvShows } = this.props;
@@ -42,7 +49,7 @@ class Home extends React.Component {
                         <li className="cover_list">
                           <NavLink to={`/movie/${id}/${getSlugByName(title)}`}>
                             <img className="cover_img" alt="cover" title={title} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
-                            <h2 className="title_image">{title}</h2>
+                            <h2 className="title_image">{this.truncStr(title, 30)}</h2>
                           </NavLink>
                         </li>
                       </div>

@@ -203,12 +203,12 @@ export default class Movies extends React.Component {
           </header>
           <main className="mobile">
             { /* Synopsis */ }
-            <div className="mobile_synopsis animated fadeInLeft delay-1s">
+            <div className="mobile_synopsis">
               <h2 className="mobile_synopsis_title">Synopsis</h2>
               <p className="mobile_synopsis_text">{detailsMovies.overview}</p>
             </div>
             { /* Informations */ }
-            <div className="mobile_info animated fadeInRight delay-2s">
+            <div className="mobile_info">
               <h2 className="mobile_info_title">Informations</h2>
               <div className="mobile_info_stats">
                 <div className="mobile_info_column">
@@ -234,7 +234,7 @@ export default class Movies extends React.Component {
               </div>
             </div>
             {/* Producteurs */}
-            <div className="mobile_casting_bar animated fadeInLeft delay-3s">
+            <div className="mobile_casting_bar">
               <h2 className="mobile_casting_title">Equipe technique</h2>
               {
                 detailsCrews.filter((item) => item.name !== '' && item.profile_path !== null)
@@ -251,7 +251,7 @@ export default class Movies extends React.Component {
                 }
             </div>
             { /* Acteurs */ }
-            <div className="mobile_casting_bar animated fadeInRight delay-4s">
+            <div className="mobile_casting_bar">
               <h2 className="mobile_info_title">Acteurs / Actrices</h2>
               {
                 detailsCasts.filter((item) => item.name !== '' && item.profile_path !== null)
@@ -268,7 +268,7 @@ export default class Movies extends React.Component {
                 }
             </div>
             { /* Trailer */ }
-            <div className="mobile_video animated fadeInLeft delay-5s">
+            <div className="mobile_video">
               <h2 className="mobile_casting_title" id="trailer">Bande-annonce</h2>
               <div className="mobile_video_link">
                 {

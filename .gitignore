@@ -1,6 +1,8 @@
 node_modules/
 .vs/
 .vs-code/
+dist/
+
 
 .DS_Store
 Thumbs.db
