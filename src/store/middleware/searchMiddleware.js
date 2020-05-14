@@ -4,23 +4,27 @@ import {
   showFetchSearchMovie,
   FETCH_SEARCH_TV,
   showFetchSearchTV,
+  searchErrorCancel,
 } from 'src/store/reducer/search';
 
 const keyApi = 'd21d6f9a11307550b8fe09b60f3ee8ef';
 
 function fetchSearchMovie(store, val) {
-  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${keyApi}&language=fr-FR&query=${val}&page=1&include_adult=false`)
-    .then((response) => {
+  if (val !== '') {
+    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${keyApi}&language=fr-FR&query=${val}&page=1&include_adult=false`)
+      .then((response) => {
       // console.log('Je suis le middleware movie', response);
-      const save = showFetchSearchMovie(response.data.results);
-      store.dispatch(save);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+        const save = showFetchSearchMovie(response.data.results);
+        store.dispatch(save);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 }
 
 function fetchSearchTV(store, val) {
+  // if (val !== '') {
   axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${keyApi}&language=fr-FR&query=${val}&page=1`)
     .then((response) => {
       // console.log('Je suis middleware show', response);
@@ -28,8 +32,14 @@ function fetchSearchTV(store, val) {
       store.dispatch(save);
     })
     .catch((error) => {
+      // if (error.response.status === 422) {
+      //   const save = searchErrorCancel();
+      //   store.dispatch(save);
+      // }
       console.error(error);
+      // console.log(error.response);
     });
+  // }
 }
 
 const searchMiddleware = (store) => (next) => (action) => {

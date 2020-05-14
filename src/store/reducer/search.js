@@ -3,6 +3,7 @@ const initialState = {
   searchMovies: [],
   searchTVs: [],
   changeValues: '',
+  error: [],
 };
 
 // == Types
@@ -12,11 +13,20 @@ const SHOW_FETCH_SEARCH_MOVIE = 'SHOW_FETCH_SEARCH_MOVIE';
 export const FETCH_SEARCH_TV = 'FETCH_SEARCH_TV';
 const SHOW_FETCH_SEARCH_TV = 'SHOW_FETCH_SEARCH_TV';
 
+export const SEARCH_ERROR = 'SEARCH_ERROR';
+const SEARCH_ERROR_CANCEL = 'SEARCH_ERROR_CANCEL';
+
 const CHANGE_VALUE = 'CHANGE_VALUE';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SEARCH_ERROR_CANCEL:
+      return {
+        ...state,
+        error: [],
+      };
+
     case SHOW_FETCH_SEARCH_MOVIE:
       return {
         ...state,
@@ -64,6 +74,14 @@ export const fetchSearchTV = (val) => ({
 export const changeValue = (value) => ({
   type: CHANGE_VALUE,
   value, // value: value,
+});
+
+export const searchError = () => ({
+  type: SEARCH_ERROR,
+});
+
+export const searchErrorCancel = () => ({
+  type: SEARCH_ERROR_CANCEL,
 });
 
 // == Selectors

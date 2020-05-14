@@ -20,6 +20,7 @@ const mapStateToProps = (state) => {
     searchMovies: state.search.searchMovies,
     searchTVs: state.search.searchTVs,
     changeValues: state.search.changeValue,
+    error: state.search.error,
   };
 };
 

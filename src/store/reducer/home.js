@@ -26,7 +26,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         tvShows: action.tvShows,
       };
-
     default:
       return state;
   }

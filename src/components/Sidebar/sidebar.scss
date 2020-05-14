@@ -66,12 +66,7 @@
   }
 
   // Sidebar Bar
-  .sidebar_mobile {
-    position: fixed;
-    width: 80%;
-    height: 100%;
-    background: #000;
-    font-size: 0.75em;
+  .test {
     transform-origin: 0% 0%;
     -webkit-transform-origin: 0% 0%;
     transform: translate(-80%, 0);
@@ -80,6 +75,13 @@
     -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
     // transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+  .sidebar_mobile {
+    position: fixed;
+    width: 80%;
+    height: 100%;
+    background: #000;
+    font-size: 0.75em;
     z-index: 2;
 
     // Titre du LOGO

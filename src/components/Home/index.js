@@ -10,8 +10,10 @@ import { getSlugByName } from 'src/utils/selectors';
 class Home extends React.Component {
   componentDidMount() {
     const { get_film, get_tvShow } = this.props;
-    get_film();
-    get_tvShow();
+    setTimeout(() => {
+      get_film();
+      get_tvShow();
+    }, 500);
   }
 
   componentWillUnmount() {
@@ -44,13 +46,18 @@ class Home extends React.Component {
               <ul className="cover_movies_list">
                 {
                   films.filter((c) => c.title !== '' && c.poster_path !== null)
-                    .map(({ id, title, poster_path }) => (
+                    .map(({
+                      id, title, poster_path, vote_average,
+                    }) => (
                       <div key={id} id={`movie-${id}`} className="container_movie">
                         <li className="cover_list">
                           <NavLink to={`/movie/${id}/${getSlugByName(title)}`}>
                             <img className="cover_img" alt="cover" title={title} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
                             <h2 className="title_image">{this.truncStr(title, 30)}</h2>
                           </NavLink>
+                          <div className="home_rating_background">
+                            <h4 className="home_rating">{vote_average}</h4>
+                          </div>
                         </li>
                       </div>
                     ))
@@ -69,14 +76,19 @@ class Home extends React.Component {
               <ul className="cover_shows_list">
                 {
                   tvShows.filter((c) => c.name !== '' && c.poster_path !== null)
-                    .map(({ id, name, poster_path }) => (
+                    .map(({
+                      id, name, poster_path, vote_average,
+                    }) => (
                       <div key={id} className="container_movie">
-                        <NavLink to={`/tv/${id}/${getSlugByName(name)}`}>
-                          <li className="cover_list">
+                        <li className="cover_list">
+                          <NavLink to={`/tv/${id}/${getSlugByName(name)}`}>
                             <img className="cover_img" alt="cover" title={name} src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
                             <h2 className="title_image">{name}</h2>
-                          </li>
-                        </NavLink>
+                          </NavLink>
+                          <div className="home_rating_background">
+                            <h4 className="home_rating">{vote_average}</h4>
+                          </div>
+                        </li>
                       </div>
                     ))
                 }

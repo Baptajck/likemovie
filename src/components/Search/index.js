@@ -13,15 +13,25 @@ class Search extends React.Component {
   onChangeHandlerMovie = (event) => {
     const { value } = event.target;
     const { changeValue, fetchSearchMovie } = this.props;
-    fetchSearchMovie(value);
-    changeValue(value);
+    if (value.length >= 1) {
+      fetchSearchMovie(value);
+      changeValue(value);
+    }
+    else {
+      fetchSearchMovie();
+    }
   };
 
     onChangeHandlerTV = (event) => {
       const { value } = event.target;
       const { changeValue, fetchSearchTV } = this.props;
-      fetchSearchTV(value);
-      changeValue(value);
+      if (value.length >= 1) {
+        fetchSearchTV(value);
+        changeValue(value);
+      }
+      else {
+        fetchSearchTV();
+      }
     };
 
     truncStr = (string, limit) => (string.length > limit
@@ -33,8 +43,6 @@ class Search extends React.Component {
 
 
     render() {
-      // console.log('je suis le state', this.state);
-      // console.log('Je suis les props', this.props.changeValues);
       const { searchMovies, searchTVs } = this.props;
       document.title = 'Rechercher | Likemovie';
       return (
@@ -60,7 +68,7 @@ class Search extends React.Component {
               <ul className="section_card">
                 {/* CARD MOVIES */}
                 {
-                  searchMovies.filter((item) => item.title !== '' && item.poster_path !== null)
+                  searchMovies.filter((item) => item.title !== '' && item.title !== 'UNdefined' && item.poster_path !== null)
                     .slice(0, 20)
                     .map(({ id, title, poster_path }) => (
                       <li key={id} className="card">
@@ -73,7 +81,7 @@ class Search extends React.Component {
                 }
                 {/* CARD TV */}
                 {
-                searchTVs.filter((item) => item.name !== '' && item.poster_path !== null)
+                searchTVs.filter((item) => item.name !== '' && item.name !== 'Head Case' && item.poster_path !== null)
                   .slice(0, 20)
                   .map(({ id, name, poster_path }) => (
                     <li key={id} className="card">
@@ -98,5 +106,5 @@ Search.propTypes = {
   fetchSearchTV: PropTypes.func.isRequired,
   fetchSearchMovie: PropTypes.func.isRequired,
   changeValue: PropTypes.func.isRequired,
-  changeValues: PropTypes.string.isRequired,
+  // changeValues: PropTypes.string.isRequired,
 };

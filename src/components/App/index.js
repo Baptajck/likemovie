@@ -7,7 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 import './app.scss';
 import ScrollToTop from 'src/components/ScrollToTop';
 import Home from 'src/containers/home';
-import Sidebar from 'src/components/Sidebar';
+import Sidebar from 'src/containers/sidebar';
 import Details from 'src/containers/details';
 import Error from 'src/components/Error';
 import TVShow from 'src/containers/tv';

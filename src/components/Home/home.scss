@@ -1,6 +1,10 @@
 @media screen and (min-width: 300px) {
   .home {
     margin-left: 16%;
+
+    &_rating_background {
+      display: none;
+    }
   }
 
   .footer {
@@ -137,6 +141,30 @@
 @media screen and (min-width: 768px) {
   .home {
     margin-left: 25%;
+
+    &_rating {
+      font-size: 0.8em;
+      line-height: 2.3em;
+      font-family: 'Dosis', sans-serif;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+
+      &_background {
+        display: block;
+        border-style: double;
+        border-radius: 100%;
+        border-width: 6px;
+        width: 2.5em;
+        height: 2.5em;
+        border-color: darkgoldenrod;
+        position: absolute;
+        right: 3%;
+        bottom: 7%;
+        color: #161616;
+        background-color: rgba(250, 250, 250, 0.7);
+      }
+    }
   }
 
   .container_movie {
@@ -183,10 +211,15 @@
       width: 100%;
       margin-left: auto;
       margin-right: auto;
+
+      &_list {
+        position: relative;
+      }
     }
 
     &_list {
       margin: 0;
+      position: relative;
     }
   }
 
