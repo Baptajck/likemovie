@@ -2,7 +2,7 @@ node_modules/
 .vs/
 .vs-code/
 dist/
-
+vscode/
 
 .DS_Store
 Thumbs.db
