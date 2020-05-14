@@ -40,7 +40,7 @@ const App = () => (
         <Sidebar />
         <Contact />
       </Route>
-      <Route exact path="/likemovie">
+      <Route exact path="/">
         <Sidebar />
         <Home />
       </Route>
