@@ -1,4 +1,4 @@
-@import 'src/styles/index.scss';
+@import './_colors';
 
 // == Size Mobile
 @media screen and (min-width: 300px) {
@@ -24,19 +24,24 @@
 
   // Note du film
   .mobile_rating_background {
-  border-color: #218da8;
-  border-style: double;
-  border-radius: 100%;
-  border-width: 6px;
-  background-color: #161616;
-  width: 2.5em;
-  height: 2.5em;
-  overflow:hidden;
-  position:relative;
-  margin-top: -2.5rem;
-  display: block;
-  margin-left: 13rem;
-  z-index: 1;
+    border-style: double;
+    border-radius: 100%;
+    border-width: 6px;
+    background-color: #161616;
+    // width: 2.5em;
+    // height: 2.5em;
+    overflow: hidden;
+    position: relative;
+    margin-top: -2.5rem;
+    // display: block;
+    margin-left: 13rem;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 34px;
+    height: 34px;
   }
 
   .mobile_rating {
@@ -47,6 +52,15 @@
     text-align: center;
     font-weight: 600;
     letter-spacing: 0.05em;
+    position: relative;
+    margin-right: .3rem;
+
+    & sup {
+      font-size: .5rem;
+      position: absolute;
+      top: -2px;
+      margin-left: 0.1rem;
+    }
   }
 
   .mobile_header {
@@ -93,6 +107,7 @@
 
       &_wrapper {
         z-index: 1;
+        position: relative;
       }
     }
 
@@ -361,20 +376,21 @@
       z-index: 1;
       
       &_after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      display: block;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      will-change: opacity;
-      transition: filter 1s;
-      }
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        display: block;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        will-change: opacity;
+        transition: filter 1s;
+        object-fit: cover;
+        }
     }
 
     // Mettre la couleur par dessus l'image
@@ -455,8 +471,8 @@
     height: 3.5em;
     overflow:hidden;
     position:relative;
-    margin-top: 1rem;
-    border-color: #218da8;
+    // margin-top: 1rem;
+    // border-color: #218da8;
   }
 
   .desktop_rating {
@@ -467,6 +483,25 @@
     text-align: center;
     font-weight: 600;
     letter-spacing: 0.05em;
+    position: relative;
+    margin-right: .3rem;
+
+    &_count {
+      margin-left: 1rem;
+    }
+
+    &_container {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    & sup {
+      font-size: .7rem;
+      position: absolute;
+      top: -2px;
+      margin-left: 0.1rem;
+    }
   }
 
   // Synopsis & informations
@@ -539,6 +574,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.9);
       width: 138px;
       height: 175px;
+      object-fit: cover;
     }
 
     &_actor {
@@ -569,6 +605,7 @@
       letter-spacing: 0.1rem;
       background: linear-gradient(to left, rgb(161, 121, 9), rgb(255, 203, 57));
       -webkit-background-clip:text;
+      background-clip:text;
       -webkit-text-fill-color: transparent;
       text-transform: uppercase;
     }

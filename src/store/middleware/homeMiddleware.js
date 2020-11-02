@@ -1,6 +1,11 @@
+/* eslint-disable import/extensions */
 /* eslint-disable camelcase */
 import axios from 'axios';
 import { GET_FILM, show_film, GET_TVSHOW, show_tvShow } from 'src/store/reducer/home';
+
+import API_KEY from './config.js';
+
+const keyApi = API_KEY;
 
 const homeMiddleware = (store) => (next) => (action) => {
   // console.log('Je suis le middleware, et je laisse passer cette action: ', action);
@@ -12,7 +17,7 @@ const homeMiddleware = (store) => (next) => (action) => {
     case GET_FILM:
       axios.get('https://api.themoviedb.org/3/movie/now_playing', {
         params: {
-          api_key: 'd21d6f9a11307550b8fe09b60f3ee8ef',
+          api_key: keyApi,
           language: 'fr-FR',
           iso_3166_1: 'FR',
           english_name: 'France',
@@ -24,7 +29,7 @@ const homeMiddleware = (store) => (next) => (action) => {
           store.dispatch(save);
         })
         .catch((error) => {
-          console.error(error);
+          // console.error(error);
         })
         .finally(() => {
 
@@ -34,7 +39,7 @@ const homeMiddleware = (store) => (next) => (action) => {
     case GET_TVSHOW:
       axios.get('https://api.themoviedb.org/3/tv/popular', {
         params: {
-          api_key: 'd21d6f9a11307550b8fe09b60f3ee8ef',
+          api_key: keyApi,
           language: 'fr-FR',
           iso_3166_1: 'FR',
           english_name: 'France',
@@ -46,7 +51,7 @@ const homeMiddleware = (store) => (next) => (action) => {
           store.dispatch(save);
         })
         .catch((error) => {
-          console.error(error);
+          // console.error(error);
         })
         .finally(() => {
 

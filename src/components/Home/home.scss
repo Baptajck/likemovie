@@ -1,3 +1,4 @@
+
 @media screen and (min-width: 300px) {
   .home {
     margin-left: 16%;
@@ -79,8 +80,9 @@
 
       &_comment {
         margin-top: 0.5rem;
-        color: #666565;
-        font-family: 'Yellowtail', cursive;
+        // color: #666565;
+        color: #8f8978;
+        // font-family: 'Yellowtail', cursive;
         font-size: 1.1em;
         letter-spacing: 0.1rem;
       }
@@ -144,25 +146,49 @@
 
     &_rating {
       font-size: 0.8em;
-      line-height: 2.3em;
+      // line-height: 2.3em;
       font-family: 'Dosis', sans-serif;
       text-align: center;
       font-weight: 600;
       letter-spacing: 0.05em;
+      position: relative;
+      margin-right: .1rem;
+
+      & sup {
+        font-size: .5rem;
+        position: absolute;
+      }
 
       &_background {
-        display: block;
+        // display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
         border-style: double;
         border-radius: 100%;
         border-width: 6px;
-        width: 2.5em;
-        height: 2.5em;
-        border-color: darkgoldenrod;
+        // width: 2.5em;
+        // height: 2.5em;
+        width: 34px;
+        height: 34px;
         position: absolute;
         right: 3%;
         bottom: 7%;
         color: #161616;
         background-color: rgba(250, 250, 250, 0.7);
+
+        &_good {
+          border-color: green;
+        }
+
+        &_medium {
+          border-color: orange;
+        }
+
+        &_bad {
+          border-color: red;
+        }
       }
     }
   }

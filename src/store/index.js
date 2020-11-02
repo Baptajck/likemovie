@@ -11,6 +11,13 @@ import searchMiddleware from './middleware/searchMiddleware';
 // == Store
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+// const enhancers = applyMiddleware(
+//   homeMiddleware,
+//   detailsMiddleware,
+//   tvMiddleware,
+//   searchMiddleware,
+// );
+
 const enhancers = composeEnhancers(
   applyMiddleware(
     homeMiddleware,

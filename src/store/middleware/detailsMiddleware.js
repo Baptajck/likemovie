@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import axios from 'axios';
 import {
   GET_FETCH_MOVIE,
@@ -12,7 +13,9 @@ import {
   showFetchVideo,
 } from 'src/store/reducer/details';
 
-const keyApi = 'd21d6f9a11307550b8fe09b60f3ee8ef';
+import API_KEY from './config.js';
+
+const keyApi = API_KEY;
 
 function getFetchMovie(store, id) {
   axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=d21d6f9a11307550b8fe09b60f3ee8ef&language=fr-FR`)
@@ -21,19 +24,19 @@ function getFetchMovie(store, id) {
       store.dispatch(save);
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
     });
 }
 
 function fetchGenresMovie(store, id) {
   axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${keyApi}&language=fr-FR`)
     .then((response) => {
-      console.log('Je suis le middleware', response.data.genres);
+      // console.log('Je suis le middleware', response.data.genres);
       const save = showFetchGenresMovie(response.data.genres);
       store.dispatch(save);
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
     });
 }
 
@@ -45,7 +48,7 @@ function getFetchCrew(store, id) {
       store.dispatch(save);
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
     });
 }
 
@@ -57,7 +60,7 @@ function getFetchCast(store, id) {
       store.dispatch(save);
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
     });
 }
 
@@ -69,7 +72,7 @@ function getFetchVideo(store, id) {
       store.dispatch(save);
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
     });
 }
 

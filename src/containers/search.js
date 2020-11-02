@@ -9,6 +9,7 @@ import {
   fetchSearchMovie,
   fetchSearchTV,
   changeValue,
+  changePages,
 } from 'src/store/reducer/search';
 
 
@@ -21,6 +22,7 @@ const mapStateToProps = (state) => {
     searchTVs: state.search.searchTVs,
     changeValues: state.search.changeValue,
     error: state.search.error,
+    pages: state.search.pages,
   };
 };
 
@@ -35,6 +37,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeValue: (value) => {
     dispatch(changeValue(value));
+  },
+  changePages: () => {
+    dispatch(changePages());
   },
 });
 

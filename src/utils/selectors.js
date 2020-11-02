@@ -23,3 +23,32 @@ export const getMediaBySlug = (medias, slug) => {
   const searchedMedia = medias.find((media) => getSlugByName(media.name) === slug);
   return searchedMedia;
 };
+
+
+// Fonction qui permet la coloration des pourcentage
+export const colorRating = (param) => {
+  if (param <= 5) {
+    return '_rating_bad';
+  }
+  if (param <= 7.5) {
+    return '_rating_medium';
+  }
+  return '_rating_good';
+};
+
+// permet de mettre "..." après un nombre préçis de caractères
+export const truncStr = (string, limit) => (string.length > limit
+  ? `${string
+    .trim()
+    .substring(0, limit - 3)
+    .trim()}...`
+  : string);
+
+
+// Permet de split l'url pour recupèrer une données dedans
+export const splitURL = () => {
+  const url = document.location.hash;
+  const a = url.split('/');
+  const n = Number(a[3]);
+  return n;
+};

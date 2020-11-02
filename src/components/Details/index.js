@@ -6,37 +6,22 @@ import YouTube from 'react-youtube';
 import { IoIosArrowRoundDown } from 'react-icons/io';
 
 // import Mobile from 'src/components/Details/mobile';
+import { splitURL, colorRating } from 'src/utils/selectors';
 
-import './movie.scss';
+// import './movie.scss';
 
 export default class Movies extends React.Component {
   componentDidMount() {
     const {
       getFetchMovie, getFetchCrew, getFetchCast, getFetchVideo, getFetchGenresMovie,
     } = this.props;
-    getFetchCrew(this.test());
-    getFetchGenresMovie(this.test());
-    getFetchMovie(this.test());
-    getFetchCast(this.test());
-    getFetchVideo(this.test());
+    getFetchCrew(splitURL());
+    getFetchGenresMovie(splitURL());
+    getFetchMovie(splitURL());
+    getFetchCast(splitURL());
+    getFetchVideo(splitURL());
   }
 
-  // componentWillUnmount() {
-  //   const {
-  //     getFetchMovie, getFetchCrew, getFetchCast, getFetchVideo,
-  //   } = this.props;
-  //   getFetchCrew(this.test());
-  //   getFetchMovie(this.test());
-  //   getFetchCast(this.test());
-  //   getFetchVideo(this.test());
-  // }
-
-  test = () => {
-    const url = document.location.pathname;
-    const a = url.split('/');
-    const n = Number(a[2]);
-    return n;
-  };
 
   render() {
     const {
@@ -68,13 +53,19 @@ export default class Movies extends React.Component {
     };
 
     document.title = `${detailsMovies.title} | Likemovie`;
+    const test = (p) => {
+      if (p === 0) {
+        return 'https://i.imgur.com/dNerNmL.jpg';
+      }
+      return 'https://i.imgur.com/jv7Z4i5.jpg';
+    };
 
     return (
       <div>
         {/* FORMAT DESKTOP */}
         <div className="desktop_details">
           <div className="desktop_details_background_effect">
-            <img className="desktop_details_background_effect_after" src={`https://image.tmdb.org/t/p/w1400_and_h450_face${detailsMovies.backdrop_path}`} alt="Image_de_fond" />
+            <img className="desktop_details_background_effect_after" src={`https://image.tmdb.org/t/p/w1920_and_h800_face${detailsMovies.backdrop_path}`} alt="Image_de_fond" />
             <div className="desktop_details_custom_bg">
               <div className="desktop_details_presentation">
                 <section className="desktop_details_presentation_infos">
@@ -83,13 +74,25 @@ export default class Movies extends React.Component {
                   </div>
                   <div className="desktop_details_column_details">
                     <h1 className="desktop_header_title">{detailsMovies.title}</h1>
-                    <a className="desktop_header_trailer_button" href="#trailer" title="Regarder la bande-annonce">
+                    <div
+                      className="desktop_header_trailer_button"
+                      onClick={() => {
+                        window.scrollTo({
+                          top: 999999,
+                          behavior: 'smooth',
+                        });
+                      }}
+                      title="Regarder la bande-annonce"
+                    >
                       <span className="details_arrow"><IoIosArrowRoundDown /></span>
                     &nbsp; Voir la bande-annonce &nbsp;
                       <img className="desktop_header_trailer" src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="" />
-                    </a>
-                    <div className="desktop_rating_background">
-                      <h4 className="desktop_rating">{detailsMovies.vote_average}</h4>
+                    </div>
+                    <div className="desktop_rating_container">
+                      <div className={`desktop_rating_background ${colorRating(detailsMovies.vote_average)}`}>
+                        <h4 className="desktop_rating">{Math.round((detailsMovies.vote_average / 10) * 100)}<sup>%</sup></h4>
+                      </div>
+                      <p className="desktop_rating_count">Sur {detailsMovies.vote_count} votant{detailsMovies.vote_count > 0 && 's'}</p>
                     </div>
                     <h2 className="desktop_synopsis_title">Synopsis</h2>
                     <p className="desktop_synopsis_text">{detailsMovies.overview}</p>
@@ -125,16 +128,20 @@ export default class Movies extends React.Component {
             </div>
           </div>
           {/* Producteurs */}
-          <h2 className="desktop_casting_title">Equipe technique</h2>
+          {detailsCrews.length > 0 && <h2 className="desktop_casting_title">Equipe technique</h2>}
           <div className="desktop_casting_section">
             {
-              detailsCrews.filter((c) => c.name !== '' && c.profile_path !== null)
+              detailsCrews.filter((c) => c.name !== '')
                 .slice(0, 5)
                 .map(({
-                  credit_id, name, profile_path, job,
+                  credit_id, name, profile_path, job, gender,
                 }) => (
                   <div key={credit_id} className="desktop_casting">
-                    <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="desktop_casting_image" alt={`${name}`} />
+                    {
+                      profile_path === null ? (
+                        <img src={`${test(gender)}`} className="desktop_casting_image" alt={`${name}`} />
+                      ) : <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="desktop_casting_image" alt={`${name}`} />
+                    }
                     <h2 className="desktop_casting_actor"> {name}</h2>
                     <h3 className="desktop_casting_name">{job}</h3>
                   </div>
@@ -143,16 +150,20 @@ export default class Movies extends React.Component {
           </div>
           <hr className="details_seperation" />
           {/* Acteurs */}
-          <h2 className="desktop_casting_title">Acteurs / Actrices</h2>
+          {detailsCasts.length > 0 && <h2 className="desktop_casting_title">Acteurs / Actrices</h2>}
           <div className="desktop_casting_section">
             {
-              detailsCasts.filter((item) => item.name !== '' && item.profile_path !== null)
+              detailsCasts.filter((item) => item.name !== '')
                 .slice(0, 5)
                 .map(({
-                  cast_id, name, profile_path, character,
+                  cast_id, name, profile_path, character, gender,
                 }) => (
                   <div key={cast_id} className="desktop_casting">
-                    <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="desktop_casting_image" alt={`${name}`} />
+                    {
+                      profile_path === null ? (
+                        <img src={`${test(gender)}`} className="desktop_casting_image" alt={`${name}`} />
+                      ) : <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="desktop_casting_image" alt={`${name}`} />
+                    }
                     <h2 className="desktop_casting_actor"> {name}</h2>
                     <h3 className="desktop_casting_name">{character}</h3>
                   </div>
@@ -161,10 +172,11 @@ export default class Movies extends React.Component {
           </div>
           <hr className="details_seperation" />
           <div className="desktop_video" id="trailer">
-            <h2 className="desktop_video_title">Bande-annonce</h2>
+            {detailsVideos.length > 0 && <h2 className="desktop_video_title">Bande-annonce</h2>}
             <div className="desktop_video_link">
               {
-                detailsVideos.slice(0, 1)
+                detailsVideos.filter((item) => item.name !== '' && item.key !== '')
+                  .slice(0, 1)
                   .map(({ key, id, iso_3166_1 }) => (
                     <div>
                       <YouTube
@@ -183,20 +195,31 @@ export default class Movies extends React.Component {
         <section className="mobile_layout_details">
           <header className="mobile_header">
             <div className="mobile_header_background">
-              <img className="mobile_header_fond" src={`https://image.tmdb.org/t/p/w500${detailsMovies.backdrop_path}`} alt="Image_de_fond" />
-              <img className="tablette_header_fond" src={`https://image.tmdb.org/t/p/w780${detailsMovies.backdrop_path}`} alt="Image_de_fond" />
+              <img className="mobile_header_fond" src={`https://image.tmdb.org/t/p/w500${detailsMovies.backdrop_path}`} alt="Couverture" />
+              <img className="tablette_header_fond" src={`https://image.tmdb.org/t/p/w780${detailsMovies.backdrop_path}`} alt="Couverture" />
             </div>
             <div className="mobile_header_image_wrapper">
-              <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${detailsMovies.poster_path}`} className="mobile_header_image" alt="movie_poster" />
+              <div>
+                <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${detailsMovies.poster_path}`} className="mobile_header_image" alt="movie_poster" />
+              </div>
+              <div className={`mobile_rating_background ${colorRating(detailsMovies.vote_average)}`}>
+                <h4 className="mobile_rating">{Math.round((detailsMovies.vote_average / 10) * 100)}<sup>%</sup></h4>
+              </div>
             </div>
-            <div className="mobile_rating_background">
-              <h4 className="mobile_rating">{detailsMovies.vote_average}</h4>
-            </div>
-            <a className="mobile_header_trailer_button" href="#trailer" title="Regarder la bande-annonce">
+            <div
+              className="mobile_header_trailer_button"
+              onClick={() => {
+                window.scrollTo({
+                  top: 999999,
+                  behavior: 'smooth',
+                });
+              }}
+              title="Regarder la bande-annonce"
+            >
               <span className="details_arrow"><IoIosArrowRoundDown /></span>
               &nbsp; Voir la bande-annonce &nbsp;
-              <img className="mobile_header_trailer" src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="" />
-            </a>
+              <img className="mobile_header_trailer" src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="logo youtube" />
+            </div>
             <h1 className="mobile_header_title">
               {detailsMovies.name}
             </h1>
@@ -204,7 +227,7 @@ export default class Movies extends React.Component {
           <main className="mobile">
             { /* Synopsis */ }
             <div className="mobile_synopsis">
-              <h2 className="mobile_synopsis_title">Synopsis</h2>
+              {detailsMovies.length > 0 && <h2 className="mobile_synopsis_title">Synopsis</h2>}
               <p className="mobile_synopsis_text">{detailsMovies.overview}</p>
             </div>
             { /* Informations */ }
@@ -235,15 +258,19 @@ export default class Movies extends React.Component {
             </div>
             {/* Producteurs */}
             <div className="mobile_casting_bar">
-              <h2 className="mobile_casting_title">Equipe technique</h2>
+              {detailsCrews.length > 0 && <h2 className="mobile_casting_title">Equipe technique</h2>}
               {
-                detailsCrews.filter((item) => item.name !== '' && item.profile_path !== null)
+                detailsCrews.filter((item) => item.name !== '')
                   .slice(0, 5)
                   .map(({
-                    name, profile_path, job,
+                    name, profile_path, job, gender,
                   }) => (
                     <div className="mobile_casting">
-                      <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="mobile_casting_image" alt={name} />
+                      {
+                        profile_path === null ? (
+                          <img src={`${test(gender)}`} className="mobile_casting_image" alt={`${name}`} />
+                        ) : <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="mobile_casting_image" alt={`${name}`} />
+                      }
                       <h2 className="mobile_casting_actor">{name}</h2>
                       <h3 className="mobile_casting_name">{job}</h3>
                     </div>
@@ -252,15 +279,19 @@ export default class Movies extends React.Component {
             </div>
             { /* Acteurs */ }
             <div className="mobile_casting_bar">
-              <h2 className="mobile_info_title">Acteurs / Actrices</h2>
+              {detailsCasts.length > 0 && <h2 className="mobile_info_title">Acteurs / Actrices</h2>}
               {
-                detailsCasts.filter((item) => item.name !== '' && item.profile_path !== null)
+                detailsCasts.filter((item) => item.name !== '')
                   .slice(0, 5)
                   .map(({
-                    id, name, profile_path, character,
+                    id, name, profile_path, character, gender,
                   }) => (
                     <div key={id} className="mobile_casting">
-                      <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="mobile_casting_image" alt={name} />
+                      {
+                        profile_path === null ? (
+                          <img src={`${test(gender)}`} className="mobile_casting_image" alt={`${name}`} />
+                        ) : <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${profile_path}`} className="mobile_casting_image" alt={`${name}`} />
+                      }
                       <h2 className="mobile_casting_actor">{name}</h2>
                       <h3 className="mobile_casting_name">{character}</h3>
                     </div>
@@ -269,10 +300,11 @@ export default class Movies extends React.Component {
             </div>
             { /* Trailer */ }
             <div className="mobile_video">
-              <h2 className="mobile_casting_title" id="trailer">Bande-annonce</h2>
+              {detailsVideos.length > 0 && <h2 className="mobile_casting_title" id="trailer">Bande-annonce</h2>}
               <div className="mobile_video_link">
                 {
-                  detailsVideos.slice(0, 1)
+                  detailsVideos.filter((item) => item.name !== '' && item.key !== '')
+                    .slice(0, 1)
                     .map(({ key, id, iso_3166_1 }) => (
                       <div>
                         <YouTube
@@ -287,7 +319,8 @@ export default class Movies extends React.Component {
               </div>
               <div className="ipad_video_link">
                 {
-                  detailsVideos.slice(0, 1)
+                  detailsVideos.filter((item) => item.name !== '' && item.key !== '')
+                    .slice(0, 1)
                     .map(({ key, id, iso_3166_1 }) => (
                       <div>
                         <YouTube

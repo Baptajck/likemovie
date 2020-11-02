@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import axios from 'axios';
 import {
   FETCH_TV,
@@ -12,7 +13,9 @@ import {
   showFetchVideoTV,
 } from 'src/store/reducer/tv';
 
-const keyApi = 'd21d6f9a11307550b8fe09b60f3ee8ef';
+import API_KEY from './config.js';
+
+const keyApi = API_KEY;
 
 function fetchTV(store, id) {
   axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${keyApi}&language=fr-FR`)
@@ -22,19 +25,19 @@ function fetchTV(store, id) {
       store.dispatch(save);
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
     });
 }
 
 function fetchGenresTV(store, id) {
   axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${keyApi}&language=fr-FR`)
     .then((response) => {
-      console.log('Je suis le middleware', response.data.genres);
+      // console.log('Je suis le middleware', response.data.genres);
       const save = showFetchGenresTV(response.data.genres);
       store.dispatch(save);
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
     });
 }
 
@@ -46,7 +49,7 @@ function fetchCrew(store, id) {
       store.dispatch(save);
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
     });
 }
 
@@ -58,7 +61,7 @@ function fetchCast(store, id) {
       store.dispatch(save);
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
     });
 }
 
@@ -70,7 +73,7 @@ function fetchVideo(store, id) {
       store.dispatch(save);
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
     });
 }
 

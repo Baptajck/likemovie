@@ -4,6 +4,7 @@ const initialState = {
   searchTVs: [],
   changeValues: '',
   error: [],
+  pages: 1,
 };
 
 // == Types
@@ -16,7 +17,12 @@ const SHOW_FETCH_SEARCH_TV = 'SHOW_FETCH_SEARCH_TV';
 export const SEARCH_ERROR = 'SEARCH_ERROR';
 const SEARCH_ERROR_CANCEL = 'SEARCH_ERROR_CANCEL';
 
+export const FETCH_PAGES = 'FETCH_PAGES';
+const SHOW_FETCH_PAGES = 'SHOW_FETCH_PAGES';
+
 const CHANGE_VALUE = 'CHANGE_VALUE';
+
+const CHANGE_PAGES = 'CHANGE_PAGES';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -25,6 +31,18 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         error: [],
+      };
+
+    case SHOW_FETCH_PAGES:
+      return {
+        ...state,
+        pages: action.pages,
+      };
+
+    case CHANGE_PAGES:
+      return {
+        ...state,
+        pages: state.pages + 1,
       };
 
     case SHOW_FETCH_SEARCH_MOVIE:
@@ -51,6 +69,20 @@ const reducer = (state = initialState, action = {}) => {
 };
 
 // == Action Creators
+export const changePages = () => ({
+  type: CHANGE_PAGES,
+});
+
+export const showFetchSearchPages = (pages) => ({
+  type: SHOW_FETCH_PAGES,
+  pages,
+});
+
+// export const fetchSearchPages = (val) => ({
+//   type: FETCH_PAGES,
+//   val,
+// });
+
 export const showFetchSearchMovie = (searchMovies) => ({
   type: SHOW_FETCH_SEARCH_MOVIE,
   searchMovies,

@@ -32,7 +32,6 @@
   }
 
   .search {
-
     
     &_title {
       text-align: center;
@@ -55,6 +54,11 @@
       font-family: 'Open Sans', sans-serif;
       margin-right: auto;
       margin-left: auto;
+
+      &_container {
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
 
@@ -72,13 +76,13 @@
     -webkit-box-direction: normal;
     flex-direction: row;
     flex-wrap: wrap;
-    -webkit-box-pack: space-evenly;
-    justify-content: space-evenly;
+    -webkit-box-pack: center;
+    justify-content: center;
     padding: 1rem 0;
   }
 
   .card {
-
+    margin: 0.4rem;
     &_image {
       width: 8rem;
       border-radius: 5%;
@@ -113,6 +117,20 @@
 @media screen and (min-width: 768px) {
   .container_search {
     margin-left: 25%;
+  }
+  .section_card {
+    margin: 2rem;
+  }
+  .search {
+    &_movie, &_tvshow {
+      width: 50%;
+    }
+    &_input {
+      &_container {
+        flex-direction: row;
+        // justify-content: space-around;
+      }
+    }
   }
 
   .card {

@@ -9,7 +9,7 @@ const Error = () => (
     <div className="stars">
       <div className="central-body">
         <img className="image-404" src="http://salehriaz.com/404Page/img/404.svg" width="300px" alt="image_404" />
-        <NavLink to="/likemovie" className="btn-go-home">GO BACK HOME</NavLink>
+        <NavLink to="/" className="btn-go-home">GO BACK HOME</NavLink>
       </div>
       <div className="objects">
         <img className="object_rocket" src="http://salehriaz.com/404Page/img/rocket.svg" width="40px" alt="image_Rocket" />
