@@ -14,7 +14,7 @@
   <h3 align="center">LikeMovie</h3>
 
   <p align="center">
-    Parcourez vos films et séries, bandes-annonces préférés. Découvrez ce qui se passe dans les salles en ce moment. Découvrez les titres à venir, tendance et top-rated.
+    Parcourez vos films et séries, bandes-annonces préférés. Découvrez ce qui se passe dans les salles en ce moment. Découvrez les titres à venir, tendance.
     <br />
     <br />
     <a href="https://likemovie.baptjack.fr">Voir le site</a>
