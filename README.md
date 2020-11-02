@@ -46,16 +46,16 @@ Cette application tire parti de l’API Movie DB pour montrer divers films et s�
 
 
 
-### Construit Avec
+## Construit Avec
 
 * [The Movie DB (API)](https://themoviedb.org)
 
 
 
 <!-- GETTING STARTED -->
-## Pour Commencer
+### Pour Commencer
 
-Pour obtenir une copie locale et exécuter suivez ces étapes simples d’exemple.
+Pour obtenir une copie locale et exécuter suivez ces étapes simples.
 
 ### Pré-requis
 
