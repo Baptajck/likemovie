@@ -1,8 +1,6 @@
 <!-- PROJECT SHIELDS -->
 [![Build Status][build-shield]]()
-[![Contributors][contributors-shield]]()
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -104,4 +102,4 @@ Christian Bourgeois - [LinkedIn](https://www.linkedin.com/in/christianbourgeoisd
 [license-url]: https://choosealicense.com/licenses/mit
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: https://raw.githubusercontent.com/othneildrew/othneildrew.github.io/master/images/projects/movie-flex.jpg
+[product-screenshot]: https://i.imgur.com/IYOJ3VA.png
