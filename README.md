@@ -7,7 +7,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://likemovie.baptjack.fr">
+  <a href="http://likemovie.baptjack.fr">
     <img src="https://i.imgur.com/G5UbFmr.png" alt="Logo" width="80" height="80">
   </a>
 
